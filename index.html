@@ -180,6 +180,7 @@ document.getElementById('clear2').addEventListener('click', function () {
     reader2.readAsDataURL(input.files[0]);
   };
 
+  // takes the values the users have entered and fills the form
   function generateForm() {
     var x = document.getElementById("bg");
     x.style.display = "block";
@@ -193,7 +194,7 @@ document.getElementById('clear2').addEventListener('click', function () {
     document.getElementById("fill_locality2").innerHTML = document.getElementById("locality").value;
     document.getElementById("fill_minvalue").innerHTML = document.getElementById("minvalue").value;
 
-
+    // changes the wording of the sale restrictions based on imput
     if (document.getElementById("mintime").value == 999){
       document.getElementById("minclause").innerHTML = "6.2 Both PARTIES shall be allowed to upload the Content, in whole or in part, to free-to-view services";
     }
