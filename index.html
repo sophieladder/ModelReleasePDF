@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+<script src="print.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+  <body>
+    <div id="header">
+      <h1>Online Model Release [Beta]</h1>
+      <span style="font-size:12px">Tested working on win10/firefox, chrome, and edge; android/firefox; and iOS/Safari.</span>
+      <br>
+      <p>1. Fill out fields below <br>2. Click "Generate Form" <br>3. Read contract <br>4.Fill out Agreement Acceptance fields <br>5. Download ("save as PDF") </p>
+      <input type="text" class="wide" id="model1name" name="Model 1 Name" value="MODEL 1 FULL LEGAL NAME"><br>
+      <input type="text" class="wide" id="model1addy" name="Model 1 Address" value="MODEL 1 FULL ADDRESS"><br>
+      <input type="text" class="wide" id="model2name" name="Model 2 Name" value="MODEL 2 FULL LEGAL NAME"><br>
+      <input type="text" class="wide" id="model2addy" name="Model 2 Address" value="MODEL 2 FULL ADDRESS"><br>
+      <br>
+      <input type="text" class="wide" id="content" value="NAME/DESCRIBE VIDEO AND/ OR PICTURES"><br>
+      film date <input type="date" id="date" ><br>
+      <input type="text"id="locality" value="LOCALITY"><br><br>
+      <button id="restrictbutton" onclick="restrict()">Enable Sale Restrictions</button> <div class="tooltip">?<span class="tooltiptext">As a default this document gives both parties free reign to do whatever they'd like with their content. Click here to enable restrictions like setting a minimum sale price, maximum amount that can be uploaded to tube sites, and more</span>
+</div>
+      <div id="restrictions">
+        <button onclick="destrict()">Disable Restrictions</button>
+        <p>
+        Minimum sale price: <br> $<input type="text" class="small" id="minvalue" value="0"> USD (enter 0 for no min)</span><br><br>
+        Maximum Length To Be Uploaded To Free-To-View Services: <br><input type="text" class="small" id="mintime" value="999"> (enter 0 to disallow, or 999 to allow unlimited uploading) <br><br>
+        Allow the other party to sell this in a bundle? <select name="" id="bundle"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select><br><br>
+        Allow the other party to give this away as a reward? <select name="" id="giveaway"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select><br><br>
+        Allow the other party to upload this to paid-to-view streaming services?<select name="" id="premium"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select><br><br>
+        </p>
+        </div>
+        <p>      <button onclick="generateForm()" class="wide">Generate Form</button>  </p>
+    </div>
+<br>
+  <div id="bg">
+    <p style="text-align:center;">
+    <span>For good and valuable consideration, the receipt and sufficiency of which is hereby acknowledged, I, </span><br>
+    <span id="fill_1name"></span>
+    <span>, residing at </span> <span id="fill_1add"></span>
+    <span>and</span><br>
+    <span id="fill_2name"></span>
+    <span>, residing at </span> <span id="fill_2add"></span>
+    <br>
+    hereinafter referred to collectively as the “PARTIES”, and individually as a “PARTY” all hereby agree as follows:
+    </p>
+      <ol>
+        <li>I hereby represent that I am of sound mind and body, acting of my own free will and fully understand the terms of this Agreement, and I am legally able to execute this Agreement; </li>
+        <li>I hereby agree and represent that I am AT LEAST 18 YEARS OLD (OR THE AGE OF MAJORITY IN THE JURISDICTION IN WHICH I LIVE OR RESIDE FOR PLACES WHERE THE AGE OF MAJORITY IS OVER 18 YEARS) at the time that the Content is created. Further, I fully understand and acknowledge the adult nature of the Content and hereby consent to appear fully and/or partially nude in such Content; </li>
+        <ul>
+          <li>I hereby agree to provide to the other PARTY a copy of a non-expired valid government issued photo Identifying Document that evidences my Date of Birth, my Photo, and my full legal name. Such ID can be a Driver's License, Passport, Citizenship Card, State ID, or National Identification Card;</li>
+          <li>I grant the other PARTY permission to provide a copy of my ID Documents to any Platform (as defined in Section 6 below), if so requested by such Platform, in connection to the Content and any requirements by applicable national, federal, state, and local laws and regulations;</li>
+        </ul>
+        <li>I hereby agree to be photographed, recorded and/or videotaped by or on behalf of the PARTIES in connection with my participation in <span id="fill_content"></span> (hereinafter referred to as the "Content") on <span id="fill_date"></span>;</li>
+        <li>I hereby acknowledge that ownership of the Content is jointly shared between both Parties, and that I do not hold exclusive rights to  reproduce, sell, license, rent or otherwise distribute and publish, modify, edit and alter the Content;</li>
+        <li>I hereby represent and acknowledge that I am solely responsible for the nature of the Content in which I decided to participate and that I am solely responsible to bear all risks associated with my participation in the Content. I will not participate in any content that could be deemed illegal or illicit, or involving minors. Furthermore, I agree not to participate in content that could violate a third party's intellectual copyright or that violates another individual's privacy or image;</li>
+        <li> I hereby grant PARTIES permission to use, reproduce, sell, license, rent or otherwise distribute and publish, modify, edit and alter the Content, except as limited below in 6.1 - 6.5. Furthermore, I hereby agree and authorize PARTIES to publish the Content online, on the platform of their choice, including any Web platform where independent content uploaders can upload, publish, license and sell their original adult videos, services or other tangibles goods to final users, including all related subdomains or Web sites of such platform (all together referred to as the "Platform"), except as limited by 6.1 - 6.5, and such authorization is given for an unlimited time;
+          <br>
+          <br> <span style="margin-left: 30px;">6.1 No PARTY shall sell the Content, in whole or in part, for a value of less than $<span id="fill_minvalue"></span> USD unless given express written permission by the other party.</span>
+          <br> <span style="margin-left: 30px;" id="minclause">6.2 No PARTY shall upload more than <span id="fill_mintime"></span> minutes of the Content to free-to-view services.</span>
+          <br> <span style="margin-left: 30px;">6.3 I hereby <span id="fill_bundle"></span>  grant the other PARTY permission to sell the Content with other pieces of intellectual property owned by that PARTY as a single unit for a reduced group price (a “Bundle”).</span>
+          <br> <span style="margin-left: 30px;">6.4 I hereby <span id="fill_giveaway"></span>  grant the other PARTY permission to give away the Content as a part of contests, promotions, rewards, or other services.</span>
+          <br> <span style="margin-left: 30px;">6.5 I hereby <span id="fill_premium"></span> grant the other PARTY permission to upload and/or license the Content for paid subscription streaming services. (eg. Pornhub Premium)</span>
+        </li>
+        <li>I hereby agree to not disclose the other PARTY’s legal name or address (hereinafter referred to as "Confidential Information"), except as required by the Platform to sell the Content, or as required by the law, and shall refrain from disclosing such Confidential Information to any third party without prior, written approval from the other PARTY, and shall protect such Confidential Information from inadvertent disclosure to a third party using the same care and diligence that I use to protect my own confidential information, but in no case less than reasonable care. I shall ensure that each of my employees, officers, directors, or agents who has access to Confidential Information disclosed under this Agreement is informed of its confidential nature and is required to abide by the terms of this Agreement. I shall promptly notify the affected PARTY of any disclosure of such Confidential Information in violation of this Agreement or of any subpoena or other legal process requiring production or disclosure of said Confidential Information;</li>
+        <li>I hereby understand and agree that the Content may be searchable by others through the Platform itself and through others partnered or networked entities of the Platform or PARTIES . Furthermore, I understand and agree that the Content may be searchable by publicly available search engines, and it is my sole responsibility should I wish not to appear, be found, or be removed of such search engines; </li>
+        <li>If the Content is found on a site(s) that is not indicated related to the PARTIES, or their licensees, as the case may be, I shall have full rights to demand that the Content be taken down from such unapproved site and/or destroyed, the whole at my own costs; </li>
+        <li>I hereby release, discharge and undertake to indemnify and hold harmless the other PARTY and the Platform from and against any and all claims, liability, costs, losses, damages or injuries of any kind arising out of or related to my participation in the Content. Without limiting the generality of the foregoing, I agree that PARTIES have neither made nor will be in any manner responsible or liable for any warranty, representation or guarantee, express or implied, in fact or in law, in connection with the Content or my participation in the Content. I further release all rights to bring any claim, action or proceeding against the other PARTY and the Platform.</li>
+        <li> I fully understand that the present declaration is binding upon my heirs and legal successors. This Agreement shall be binding upon, inure to the benefit of, and be enforceable by the PARTIES and the Platform, and their respective successors and assigns. </li>
+        <li> I acknowledge that I have reviewed this Agreement in its entirety and understand its terms and, further, that I have had the opportunity to discuss this Agreement with my own counsel. This Agreement shall be deemed to have been jointly drafted by all parties, and in construing and interpreting this Agreement, no provision shall be construed and interpreted for or against any of the parties hereto because such provision or any other provision of the Agreement as a whole is purportedly prepared or requested by such party. </li>
+        <li>In the event that any provision or portion of this Agreement shall be determined to be invalid or unenforceable for any reason, in whole or in part, the remaining provisions of this Agreement shall be unaffected thereby and shall remain in full force and effect to the fullest extent permitted by law. </li>
+        <li>I agree and understand that I am solely responsible to comply with all applicable laws and regulations in my location as  well as all laws and regulations applicable to my participation in the Content.</li>
+        <li>This Agreement shall be governed by and construed in accordance with the laws of <span id="fill_locality"></span> The parties irrevocably agree that the courts of <span id="fill_locality2"></span> shall have exclusive jurisdiction to settle any dispute or claim that arises out of or in connection with this Agreement or its subject matter or formation (including non-contractual disputes or claims). </li>
+
+      </ol>
+
+
+
+    </div>
+    <br>
+    <div class="center" id="">
+      <h2>Agreement Acceptance</h2>
+      <span>I have read and accepted the Agreement on this day, <input type="date" id="sigdate" class="date"></span>
+      <br>
+      MODEL 1 SIGNATURE
+      <div class="wrapper">
+        <canvas id="signature1" class="signature-pad" width=600 height=100></canvas>
+      </div>
+      <button id="clear">Clear</button> <br>
+      MODEL 2 SIGNATURE
+      <div class="wrapper">
+        <canvas id="signature2" class="signature-pad" width=400 height=200></canvas>
+      </div>
+      <button id="clear2">Clear</button> <br><br>
+
+      <br><span style="font-size:12px">Upload pictures of both model's photo ID. note, this should be in landscape format as portrait photos will <be></be> distorted</span>
+      <br>Model 1 ID
+      <input type='file' accept='image/*' onchange='openFile(event)'><br>
+      <img id='output1'>
+      <br>
+      <br>Model 2 ID
+      <input type='file' accept='image/*' onchange='openFile2(event)'><br>
+      <img id='output2'>
+      <br>
+      <button id ="publish" onclick="printtopdf()" class="wide">Save as pdf</button>
+      <br>
+      <span style="font-size:12px">This will NOT work if you have not upladed ID images</span>
+    </div>
+    <div class="footer">
+      <p>Privacy / About:
+      <br>
+      This pdf generator operates entirely on your end, so nothing you enter here is sent over the internet in any way. <br> Good news: privacy. Bad news: NO ONLINE PDF BACKUPS!<br>pls make sure you've saved them, cuz once you exit the form you'll have to enter it all over again.
+      </p>
+      <p>More features coming as soon, this should be considered an imperfect yet functional version.</p>
+    </div>
+  </body>
+<script type="text/javascript">
+  var sig1 = document.getElementById('signature1');
+  var sig2 = document.getElementById('signature2');
+  var idimg1 = "";
+  var idimg2 = "";
+
+// Adjust canvas coordinate space taking into account pixel ratio,
+// to make it look crisp on mobile devices.
+// This also causes canvas to be cleared.
+function resizeCanvas() {
+    // When zoomed out to less than 100%, for some very strange reason,
+    // some browsers report devicePixelRatio as less than 1
+    // and only part of the canvas is cleared then.
+    var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+    sig1.width = sig1.offsetWidth * ratio;
+    sig1.height = sig1.offsetHeight * ratio;
+    sig1.getContext("2d").scale(ratio, ratio);
+
+    sig2.width = sig2.offsetWidth * ratio;
+    sig2.height = sig2.offsetHeight * ratio;
+    sig2.getContext("2d").scale(ratio, ratio);
+}
+
+window.onresize = resizeCanvas;
+resizeCanvas();
+
+var signaturePad1 = new SignaturePad(sig1, {});
+
+var signaturePad2 = new SignaturePad(sig2, {});
+
+document.getElementById('clear').addEventListener('click', function () {
+  signaturePad1.clear();
+});
+document.getElementById('clear2').addEventListener('click', function () {
+  signaturePad2.clear();
+});
+
+
+  var openFile = function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      window.idimg1 = reader.result;
+      var output = document.getElementById('output1');
+      output.src = dataURL;
+    };
+    reader.readAsDataURL(input.files[0]);
+  };
+
+  var openFile2 = function(event) {
+    var input = event.target;
+
+    var reader2 = new FileReader();
+    reader2.onload = function(){
+      var dataURL2 = reader2.result;
+      window.idimg2 = reader2.result;
+      var output2 = document.getElementById('output2');
+      output2.src = dataURL2;
+    };
+    reader2.readAsDataURL(input.files[0]);
+  };
+
+  function generateForm() {
+    var x = document.getElementById("bg");
+    x.style.display = "block";
+    document.getElementById("fill_1name").innerHTML = document.getElementById("model1name").value;
+    document.getElementById("fill_1add").innerHTML = document.getElementById("model1addy").value;
+    document.getElementById("fill_2name").innerHTML = document.getElementById("model2name").value;
+    document.getElementById("fill_2add").innerHTML = document.getElementById("model2addy").value;
+    document.getElementById("fill_content").innerHTML = document.getElementById("content").value;
+    document.getElementById("fill_date").innerHTML = document.getElementById("date").value;
+    document.getElementById("fill_locality").innerHTML = document.getElementById("locality").value;
+    document.getElementById("fill_locality2").innerHTML = document.getElementById("locality").value;
+    document.getElementById("fill_minvalue").innerHTML = document.getElementById("minvalue").value;
+
+
+    if (document.getElementById("mintime").value == 999){
+      document.getElementById("minclause").innerHTML = "6.2 Both PARTIES shall be allowed to upload the Content, in whole or in part, to free-to-view services";
+    }
+    else if (document.getElementById("mintime").value == 0){
+      document.getElementById("minclause").innerHTML = "6.2 I hereby agree to not upload any of the Content to free-to-view services";
+    }
+    else {
+      document.getElementById("minclause").innerHTML = "6.2 No PARTY shall upload more than " + document.getElementById("mintime").value + " minutes of the Content to free-to-view services.";
+    }
+
+    document.getElementById("fill_bundle").innerHTML = document.getElementById("bundle").value;
+    document.getElementById("fill_giveaway").innerHTML = document.getElementById("giveaway").value;
+    document.getElementById("fill_premium").innerHTML = document.getElementById("premium").value;
+  }
+  function restrict() {
+      document.getElementById("restrictions").style.display = "block";
+      document.getElementById("restrictbutton").style.display = "none";
+  }
+  function destrict() {
+      document.getElementById("restrictions").style.display = "none";
+      document.getElementById("restrictbutton").style.display = "inline";
+  }
+
+</script>
+
+</html>

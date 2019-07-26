@@ -1,0 +1,119 @@
+input {
+  color:pink;
+}
+input:hover {
+  color:purple;
+}
+input:focus {
+  color:purple;
+}
+li {
+  padding: 10px 0;
+}
+.wide {
+  width: 450px;
+  font-size: 1.2em;
+}
+.small {
+  width: 50px;
+}
+.date {
+  font-size: 1.5em;
+}
+#date {
+  font-size: 1.5em;
+}
+#locality{
+  width: 200px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  text-align: center;
+}
+
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+  width: 600px;
+  height: 100px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.signature-pad {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 600px;
+  height: 100px;
+  background-color: white;
+  border: solid 1px;
+}
+#header {
+  text-align: center;
+  font-size: 1.3em;
+  max-width: 1000px;
+  max-width: 100%;
+  background-color: #efeaf2;
+  padding:15px 0;
+}
+h1 {
+  font-size: 50px;
+}
+.center {
+  text-align: center;
+  font-size: 1.3em;
+  max-width: 1000px;
+  max-width: 100%;
+  background-color: #efeaf2;
+}
+#bg {
+  background-color: #e9edf1;
+  display: none;
+}
+#acceptance {
+  display: none;
+}
+#restrictions {
+  display: none;
+}
+.footer {
+  max-width: 100%;
+  max-width: 900px;
+  text-align: center;
+  margin: 0 auto;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 600px;
+  background-color: darkgrey;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  left: -300px;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
