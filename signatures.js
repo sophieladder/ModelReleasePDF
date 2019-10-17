@@ -3,7 +3,7 @@ window.onload = signature;
 function signature {
 
 var canvas = document.getElementById('signature1');
-
+var canvas2 = document.getElementById('signature2');
 // Adjust canvas coordinate space taking into account pixel ratio,
 // to make it look crisp on mobile devices.
 // This also causes canvas to be cleared.
@@ -15,6 +15,9 @@ function resizeCanvas() {
   canvas.width = canvas.offsetWidth * ratio;
   canvas.height = canvas.offsetHeight * ratio;
   canvas.getContext("2d").scale(ratio, ratio);
+  canvas2.width = canvas2.offsetWidth * ratio;
+  canvas2.height = canvas2.offsetHeight * ratio;
+  canvas2.getContext("2d").scale(ratio, ratio);
 }
 
 window.onresize = resizeCanvas;
