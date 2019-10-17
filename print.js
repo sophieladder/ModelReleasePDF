@@ -130,7 +130,7 @@ var name ="";
   doc.text(xmargin, yline, document.getElementById("model1name").value + ' \nRead and accepted this day, ' + document.getElementById('sigdate').value);
   // take the data from the signature pad (an HTML5 canvas), convert it to a png, and insert it into the PDF
   // model 1 signature
-  var imgData1 = window.signaturePad1.toDataURL('image/png');
+  var imgData1 = signaturePad1.toDataURL('image/png');
   doc.addImage(imgData1, 'png', 10, 138, 100, 17);
   doc.setLineWidth(0.25);
   doc.line(12, 155, 100, 155);
