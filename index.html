@@ -155,7 +155,6 @@ function resizeCanvas() {
     sig2.getContext("2d").scale(ratio, ratio);
 }
 
-window.onresize = resizeCanvas;
 resizeCanvas();
 
 var signaturePad1 = new SignaturePad(sig1, {});
@@ -164,9 +163,11 @@ var signaturePad2 = new SignaturePad(sig2, {});
 
 document.getElementById('clear').addEventListener('click', function () {
   signaturePad1.clear();
+  resizeCanvas();
 });
 document.getElementById('clear2').addEventListener('click', function () {
   signaturePad2.clear();
+  resizeCanvas();
 });
 
 
