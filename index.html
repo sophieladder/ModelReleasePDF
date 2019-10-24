@@ -11,9 +11,7 @@
 
 <body>
   <div id="header">
-    <h1>Online Model Release [Beta]</h1>
-    <span style="font-size:12px">Tested working on win10/firefox, chrome, and edge; android/firefox; and iOS/Safari.</span>
-    <br>
+    <h1>Online Model Release</h1>
     <p>1. Fill out fields below <br>2. Click "Generate Form" <br>3. Read contract <br>4.Fill out Agreement Acceptance fields <br>5. Download ("save as PDF") </p>
 
     <input type="radio" id="form_share" name="formtype" value="shared" checked>
@@ -21,17 +19,17 @@
     <input type="radio" id="form_exclude" name="formtype" value="exclusive">
     <label for="form_share">Exclusive Content</label>
     <br>
-    <input type="text" class="wide" id="model1name" name="Model 1 Name" value="MODEL 1 FULL LEGAL NAME"><br>
-    <input type="text" class="wide" id="model1addy" name="Model 1 Address" value="MODEL 1 FULL ADDRESS"><br>
-    <input type="text" class="wide" id="model2name" name="Model 2 Name" value="MODEL 2 FULL LEGAL NAME"><br>
-    <input type="text" class="wide" id="model2addy" name="Model 2 Address" value="MODEL 2 FULL ADDRESS"><br>
+    <input type="text" class="wide" id="model1name" name="Model 1 Name" placeholder="MODEL 1 FULL LEGAL NAME"><br>
+    <input type="text" class="wide" id="model1addy" name="Model 1 Address" placeholder="MODEL 1 FULL ADDRESS"><br>
+    <input type="text" class="wide" id="model2name" name="Model 2 Name" placeholder="MODEL 2 FULL LEGAL NAME"><br>
+    <input type="text" class="wide" id="model2addy" name="Model 2 Address" placeholder="MODEL 2 FULL ADDRESS"><br>
     <br>
-    <input type="text" class="wide" id="content" value="NAME/DESCRIBE VIDEO AND/ OR PICTURES"><br>
+    <input type="text" class="wide" id="content" placeholder="NAME/DESCRIBE VIDEO AND/ OR PICTURES"><br>
     film date <input type="date" id="date" ><br>
-    <input type="text"id="locality" value="LOCALITY"><br><br>
-    <button id="restrictbutton" onclick="restrict()">Enable Sale Restrictions</button> <div class="tooltip">?<span class="tooltiptext">As a default this document gives both parties free reign to do whatever they'd like with their content. Click here to enable restrictions like setting a minimum sale price, maximum amount that can be uploaded to tube sites, and more</span></div>
+    <input type="text" id="locality" placeholder="LOCALITY"><br><br>
+    <button id="restrictbutton" onclick="restrict()">View Sale Restrictions</button> <div class="tooltip">?<span class="tooltiptext">As a default this document gives both parties free reign to do whatever they'd like with their content. Click here to enable restrictions like setting a minimum sale price, maximum amount that can be uploaded to tube sites, and more</span></div>
     <div id="restrictions">
-      <button onclick="destrict()">Disable Restrictions</button>
+      <button onclick="destrict()">Hide Restrictions</button>
       <p>
         Minimum sale price: <br> $<input type="text" class="small" id="minvalue" value="0"> USD (enter 0 for no min)</span><br><br>
         Maximum Length To Be Uploaded To Free-To-View Services: <br><input type="text" class="small" id="mintime" value="999"> (enter 0 to disallow, or 999 to allow unlimited uploading) <br><br>
@@ -100,11 +98,10 @@
       </div>
       <button id="clear2">Clear</button> <br><br>
 
-      <br><span style="font-size:12px">Upload pictures of both model's photo ID. note, this should be in landscape format as portrait photos will <be></be> distorted</span>
-      <br>Model 1 ID
+      <br><span style="font-size:14px">Upload pictures of both model's photo ID. note, this should be in landscape format as portrait photos will <be></be> distorted</span>
+      <br><br>Model 1 ID
       <input type='file' accept='image/*' onchange='openFile(event)'><br>
       <img id='output1'>
-      <br>
       <br>Model 2 ID
       <input type='file' accept='image/*' onchange='openFile2(event)'><br>
       <img id='output2'>
@@ -116,9 +113,11 @@
     <div class="footer">
       <p>Privacy / About:
       <br>
-      This pdf generator operates entirely on your end, so nothing you enter here is sent over the internet in any way. <br> Good news: privacy. Bad news: NO ONLINE PDF BACKUPS!<br>pls make sure you've saved them, cuz once you exit the form you'll have to enter it all over again.
+      No information entered here is sent over the web in any way. Make sure that you have
+      <br>downloaded your PDF to a safe place as once you exit this form it'll be gone forever.
       </p>
       <p>Fork this on <a href="https://github.com/sophieladder/ModelReleasePDF">github</a></p>
+      <p>Donations to keep this free can be sent to $sophieladder on cashapp</p>
     </div>
   </body>
 <script type="text/javascript">

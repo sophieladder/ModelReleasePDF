@@ -1,11 +1,11 @@
 input {
-  color:pink;
+  color:purple;
 }
 input:hover {
   color:purple;
 }
 input:focus {
-  color:purple;
+  color:RebeccaPurple;
 }
 li {
   padding: 10px 0;
@@ -24,7 +24,9 @@ li {
   font-size: 1.5em;
 }
 #locality{
-  width: 200px;
+  width: 250px;
+  font-size: 1em;
+  margin-top: 10px;
 }
 .grid-container {
   display: grid;
@@ -86,6 +88,10 @@ h1 {
 }
 #restrictions {
   display: none;
+}
+#output1, #output2{
+  width: 100%;
+  max-width: 900px;
 }
 .footer {
   max-width: 100%;
