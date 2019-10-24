@@ -27,12 +27,22 @@
     <input type="text" class="wide" id="content" placeholder="NAME/DESCRIBE VIDEO AND/ OR PICTURES"><br>
     film date <input type="date" id="date" ><br>
     <input type="text" id="locality" placeholder="LOCALITY"><br><br>
-    <button id="restrictbutton" onclick="restrict()">View Sale Restrictions</button> <div class="tooltip">?<span class="tooltiptext">As a default this document gives both parties free reign to do whatever they'd like with their content. Click here to enable restrictions like setting a minimum sale price, maximum amount that can be uploaded to tube sites, and more</span></div>
+    <h4>Optional Fields:</h4>
+    Witness <label class="switch"><input type="checkbox" id="witcheck" onclick="wit();"><span class="slider"></span></label><br>
+    <input type="text" id="witness" class="wide" placeholder="Witness Name">
+    <br>
+    Sale Restrictions
+    <label class="switch"><input type="checkbox" id="salecheck" onclick="strict();"><span class="slider"></span></label>
+    &nbsp; <div class="tooltip">?<span class="tooltiptext">As a default this document gives both parties free reign to do whatever they'd like with their content. Click here to enable restrictions like setting a minimum sale price, maximum amount that can be uploaded to tube sites, and more</span></div>
+    <br>
+
     <div id="restrictions">
-      <button onclick="destrict()">Hide Restrictions</button>
       <p>
-        Minimum sale price: <br> $<input type="text" class="small" id="minvalue" value="0"> USD (enter 0 for no min)</span><br><br>
-        Maximum Length To Be Uploaded To Free-To-View Services: <br><input type="text" class="small" id="mintime" value="999"> (enter 0 to disallow, or 999 to allow unlimited uploading) <br><br>
+        Minimum sale price: $<input type="text" class="small" id="minvalue" value="0"> USD (enter 0 for no min)</span><br>
+        <input type="radio" value="val1" name="group1" checked>Always <input type="radio" value="val2" name="group1">
+         For the first <input type="text" class="medium" id="selltime" placeholder="two weeks / 3 months / etc" value=""> after release
+        <br><br>
+        Maximum Length To Be Uploaded To Free-To-View Services: <br><input type="text" class="small" id="mintime" value="999">minutes (enter 0 to disallow, or 999 to allow unlimited uploading) <br><br>
         Allow the other party to sell this in a bundle? <select name="" id="bundle"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select><br><br>
         Allow the other party to give this away as a reward? <select name="" id="giveaway"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select><br><br>
         Allow the other party to upload this to paid-to-view streaming services?<select name="" id="premium"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select><br><br>
@@ -65,7 +75,7 @@
         <li>I hereby represent and acknowledge that I am solely responsible for the nature of the Content in which I decided to participate and that I am solely responsible to bear all risks associated with my participation in the Content. I will not participate in any content that could be deemed illegal or illicit, or involving minors. Furthermore, I agree not to participate in content that could violate a third party's intellectual copyright or that violates another individual's privacy or image;</li>
         <li> I hereby grant <span class="name"></span> permission to use, reproduce, sell, license, rent or otherwise distribute and publish, modify, edit and alter the Content, except as limited below in 6.1 - 6.5. Furthermore, I hereby agree and authorize <span class="name"></span> to publish the Content online, on the platform of their choice, including any Web platform where independent content uploaders can upload, publish, license and sell their original adult videos, services or other tangibles goods to final users, including all related subdomains or Web sites of such platform (all together referred to as the "Platform"), except as limited by 6.1 - 6.5, and such authorization is given for an unlimited time;
           <br>
-          <br> <span style="margin-left: 30px;">6.1 <span class="name"></span> shall not sell the Content, in whole or in part, for a value of less than $<span id="fill_minvalue"></span> USD unless given express written permission by the other party.</span>
+          <br> <span style="margin-left: 30px;">6.1 <span class="name"></span> shall not sell the Content, in whole or in part, for a value of less than $<span id="fill_minvalue"></span> USD <span id="slength"></span> unless given express written permission by the other party.</span>
           <br> <span style="margin-left: 30px;" id="minclause">6.2 <span class="name"></span> shall not upload more than <span id="fill_mintime"></span> minutes of the Content to free-to-view services.</span>
           <br> <span style="margin-left: 30px;">6.3 I hereby <span id="fill_bundle"></span>  grant <span class="name"></span> permission to sell the Content with other pieces of intellectual property owned by that party as a single unit for a reduced group price (a “Bundle”).</span>
           <br> <span style="margin-left: 30px;">6.4 I hereby <span id="fill_giveaway"></span>  grant <span class="name"></span> permission to give away the Content as a part of contests, promotions, rewards, or other services.</span>
@@ -79,7 +89,7 @@
         <li> I acknowledge that I have reviewed this Agreement in its entirety and understand its terms and, further, that I have had the opportunity to discuss this Agreement with my own counsel. This Agreement shall be deemed to have been jointly drafted by all parties, and in construing and interpreting this Agreement, no provision shall be construed and interpreted for or against any of the parties hereto because such provision or any other provision of the Agreement as a whole is purportedly prepared or requested by such party. </li>
         <li>In the event that any provision or portion of this Agreement shall be determined to be invalid or unenforceable for any reason, in whole or in part, the remaining provisions of this Agreement shall be unaffected thereby and shall remain in full force and effect to the fullest extent permitted by law. </li>
         <li>I agree and understand that I am solely responsible to comply with all applicable laws and regulations in my location as  well as all laws and regulations applicable to my participation in the Content.</li>
-        <li>This Agreement shall be governed by and construed in accordance with the laws of <span id="fill_locality"></span> The parties irrevocably agree that the courts of <span id="fill_locality2"></span> shall have exclusive jurisdiction to settle any dispute or claim that arises out of or in connection with this Agreement or its subject matter or formation (including non-contractual disputes or claims). </li>
+        <li>This Agreement shall be governed by and construed in accordance with the laws of <span id="fill_locality"></span>. The parties irrevocably agree that the courts of <span id="fill_locality2"></span> shall have exclusive jurisdiction to settle any dispute or claim that arises out of or in connection with this Agreement or its subject matter or formation (including non-contractual disputes or claims). </li>
       </ol>
     </div>
     <br>
@@ -91,12 +101,19 @@
       <div class="wrapper">
         <canvas id="signature1" class="signature-pad" width=600 height=100></canvas>
       </div>
-      <button id="clear">Clear</button> <br>
+      <button id="clear">Clear</button> <br><br>
       MODEL 2 SIGNATURE
       <div class="wrapper">
         <canvas id="signature2" class="signature-pad" width=400 height=200></canvas>
       </div>
       <button id="clear2">Clear</button> <br><br>
+      <div id="witness_sig">
+        WITNESS SIGNATURE
+        <div class="wrapper">
+          <canvas id="signature3" class="signature-pad" width=600 height=100></canvas>
+        </div>
+        <button id="clear3">Clear</button> <br>
+      </div>
 
       <br><span style="font-size:14px">Upload pictures of both model's photo ID. note, this should be in landscape format as portrait photos will <be></be> distorted</span>
       <br><br>Model 1 ID
@@ -120,162 +137,5 @@
       <p>Donations to keep this free can be sent to $sophieladder on cashapp</p>
     </div>
   </body>
-<script type="text/javascript">
-  var sig1 = document.getElementById('signature1');
-  var sig2 = document.getElementById('signature2');
-  var idimg1 = "";
-  var idimg2 = "";
-  var formtype = "shared";
-
-document.getElementById('form_share').addEventListener('click', function () {
-  formtype = "shared";
-  document.getElementById("model1name").value = "MODEL 1 FULL LEGAL NAME";
-});
-document.getElementById('form_exclude').addEventListener('click', function () {
-  formtype = "exclude";
-  document.getElementById("model1name").value = "MODEL 1 (OWNER) FULL LEGAL NAME";
-});
-
-
-// Adjust canvas coordinate space taking into account pixel ratio,
-// to make it look crisp on mobile devices.
-// This also causes canvas to be cleared.
-function resizeCanvas() {
-    // When zoomed out to less than 100%, for some very strange reason,
-    // some browsers report devicePixelRatio as less than 1
-    // and only part of the canvas is cleared then.
-    var ratio =  Math.max(window.devicePixelRatio || 1, 1);
-    sig1.width = sig1.offsetWidth * ratio;
-    sig1.height = sig1.offsetHeight * ratio;
-    sig1.getContext("2d").scale(ratio, ratio);
-
-    sig2.width = sig2.offsetWidth * ratio;
-    sig2.height = sig2.offsetHeight * ratio;
-    sig2.getContext("2d").scale(ratio, ratio);
-}
-
-resizeCanvas();
-
-var signaturePad1 = new SignaturePad(sig1, {});
-
-var signaturePad2 = new SignaturePad(sig2, {});
-
-document.getElementById('clear').addEventListener('click', function () {
-  signaturePad1.clear();
-  resizeCanvas();
-});
-document.getElementById('clear2').addEventListener('click', function () {
-  signaturePad2.clear();
-  resizeCanvas();
-});
-
-
-  var openFile = function(event) {
-    var input = event.target;
-
-    var reader = new FileReader();
-    reader.onload = function(){
-      var dataURL = reader.result;
-      window.idimg1 = reader.result;
-      var output = document.getElementById('output1');
-      output.src = dataURL;
-    };
-    reader.readAsDataURL(input.files[0]);
-  };
-
-  var openFile2 = function(event) {
-    var input = event.target;
-
-    var reader2 = new FileReader();
-    reader2.onload = function(){
-      var dataURL2 = reader2.result;
-      window.idimg2 = reader2.result;
-      var output2 = document.getElementById('output2');
-      output2.src = dataURL2;
-    };
-    reader2.readAsDataURL(input.files[0]);
-  };
-
-  // takes the values the users have entered and fills the form
-  function generateForm() {
-    var x = document.getElementById("bg");
-    x.style.display = "block";
-    document.getElementById("fill_1name").innerHTML = document.getElementById("model1name").value;
-    document.getElementById("fill_1add").innerHTML = document.getElementById("model1addy").value;
-    if (formtype == "exclude"){
-      document.getElementById("model1ident").innerHTML = "(hereinafter referred to as the 'OWNER')<br>";
-      document.getElementById("intro").innerHTML = "In favor of";
-      document.getElementById("model2ident").innerHTML = "<br>For good and valuable consideration, the receipt and sufficiency of which is hereby acknowledged, I,";
-      document.getElementById("intro2").innerHTML = "<br>hereby agree as follows: ";
-      document.getElementById("sharetype").innerHTML = "I hereby acknowledge the Content is sole property of OWNER, and that I do not hold any rights to reproduce, sell, license, rent or otherwise distribute and publish, modify, edit and alter the Content unless given written permission by the OWNER;";
-    }
-    else {
-      document.getElementById("model1ident").innerHTML = "<br>AND";
-      document.getElementById("intro").innerHTML = "For good and valuable consideration, the receipt and sufficiency of which is hereby acknowledged, I,";
-      document.getElementById("model2ident").innerHTML = "";
-      document.getElementById("intro2").innerHTML = "<br>hereinafter referred to collectively as the “PARTIES”, and individually as a “PARTY” all hereby agree as follows:"
-      document.getElementById("sharetype").innerHTML = "I hereby acknowledge that ownership of the Content is jointly shared between both Parties, and that I do not hold exclusive rights to  reproduce, sell, license, rent or otherwise distribute and publish, modify, edit and alter the Content;";
-    }
-    document.getElementById("fill_2name").innerHTML = document.getElementById("model2name").value;
-    document.getElementById("fill_2add").innerHTML = document.getElementById("model2addy").value;
-
-    var names = document.getElementsByClassName("name");
-    for(var i = 0; i < names.length; i++)
-    {
-      if (formtype == "shared") {
-        names[i].innerHTML = "the PARTIES";
-      }
-      else {
-        names[i].innerHTML = "the OWNER"
-      }
-    }
-
-    document.getElementById("fill_content").innerHTML = document.getElementById("content").value;
-    document.getElementById("fill_date").innerHTML = document.getElementById("date").value;
-    document.getElementById("fill_locality").innerHTML = document.getElementById("locality").value;
-    document.getElementById("fill_locality2").innerHTML = document.getElementById("locality").value;
-    document.getElementById("fill_minvalue").innerHTML = document.getElementById("minvalue").value;
-
-    // changes the wording of the sale restrictions based on imput
-    if (document.getElementById("mintime").value == 999){
-      if (formtype == "shared"){
-        document.getElementById("minclause").innerHTML = "6.2 Both PARTIES shall be allowed to upload the Content, in whole or in part, to free-to-view services";
-      }
-      else {
-        document.getElementById("minclause").innerHTML = "6.2 The OWNER shall be allowed to upload the Content, in whole or in part, to free-to-view services;"
-      }
-    }
-    else if (document.getElementById("mintime").value == 0){
-      if (formtype == "shared"){
-      document.getElementById("minclause").innerHTML = "6.2 I hereby agree to not upload any of the Content to free-to-view services";
-      }
-      else {
-        document.getElementById("minclause").innerHTML = "6.2 The OWNER hereby agrees not to upload any of the Content to free-to-view services";
-      }
-    }
-    else {
-      if (formtype == "shared"){
-        document.getElementById("minclause").innerHTML = "6.2 No PARTY shall upload more than " + document.getElementById("mintime").value + " minutes of the Content to free-to-view services.";
-      }
-      else {
-        document.getElementById("minclause").innerHTML = "6.2 The OWNER shall not upload more than " + document.getElementById("mintime").value + " minutes of the Content to free-to-view services.";
-      }
-    }
-
-    document.getElementById("fill_bundle").innerHTML = document.getElementById("bundle").value;
-    document.getElementById("fill_giveaway").innerHTML = document.getElementById("giveaway").value;
-    document.getElementById("fill_premium").innerHTML = document.getElementById("premium").value;
-  }
-  // show or hide the selling restrictions at the top of the page
-  function restrict() {
-      document.getElementById("restrictions").style.display = "block";
-      document.getElementById("restrictbutton").style.display = "none";
-  }
-  function destrict() {
-      document.getElementById("restrictions").style.display = "none";
-      document.getElementById("restrictbutton").style.display = "inline";
-  }
-
-</script>
-
+<script src="script.js"></script>
 </html>
