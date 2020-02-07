@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="author" content="Sophie Ladder">
+  <meta name="description" content="A fillable web form to create PDF model releases for adult performers">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="header">
+    <h1>Online 2257 Form to PDF</h1>
+    <input type="text" class="wide" id="content" placeholder="Shoot ID# or Name"><br><br>
+    <input type="text" class="med" id="firstname" placeholder="First Name">
+    <input type="text" class="med" id="lastname" placeholder="Last / Family Name">
+    <br>
+    Date of Birth<input type="date" id="bday" class="med"><br>
+    <input type="text" class="wide tall" id="modeladdy" name="Model Address" placeholder="FULL ADDRESS"><br>
+    <br>
+    <h3>Other names</h3>
+    <input type="text" class="wide" id="maidenname" name="Maiden Name" placeholder="Maiden Name"><br>
+    <input type="text" class="wide" id="alias" name="Alias" placeholder="alias"><br>
+    <input type="text" class="wide" id="nickname" name="Nickname" placeholder="nickname"><br>
+    <input type="text" class="wide" id="stagename" name="Stage Name" placeholder="Stage Name"><br>
+    <input type="text" class="wide" id="profname" name="Professional Name" placeholder="Professional Name"><br>
+    <input type="text" class="wide" id="oldlegal" name="Former Legal Name" placeholder="Former Legal Name"><br>
+    <input type="text" class="wide" id="oldstagename" name="Former Stage Name" placeholder="Former Stage Name"><br>
+    <input type="text" class="wide" id="etc1" name="Other Name" placeholder="Other Name"><br>
+    <input type="text" class="wide" id="etc2" name="Other Name 2" placeholder="Other Name 2"><br>
+    <input type="text" class="wide" id="etc3" name="Other Name 3" placeholder="Other Name 3"><br>
+    <h3>Copy of URLS</h3>
+    <span id="urlbutton" onmouseover="URLoverlay">?</span><input type="text" class="wide" id="URL" name="URLs" placeholder="URLs, separate with comma"><br>
+    <div class="explanation" id="urlexplain">
+      any URL where the content will be hosted. if no webpages yet exist you may leave it blank, but any future URLs where the content will be hosted must be added onto your record
+      <br>28 CFR § 75.2 <br><br>
+      <img src="img4.jpg" alt="">
+    </div>
+    <br>
+    film date <input type="date" id="date" ><br>
+  </div>
+
+    <br>
+    <div class="center" id="">
+      <p>UNDER 28 U.S.C.1746 AND THE PENALTIES OF PERJURY UNDER THE LAWS OF THE UNITED STATES, <br>I SWEAR THAT THE FOREGOING IS TRUE AND CORRECT,
+        <br> <input type="date" id="sigdate" class="date"></p>
+      <br>
+      MODEL SIGNATURE
+      <div class="wrapper">
+        <canvas id="signature1" class="signature-pad" width=600 height=100></canvas>
+      </div>
+      <button id="clear">Clear</button>
+
+      <br><span style="font-size:14px">Upload pictures of the model's photo ID. note, this should be in landscape format as portrait photos will be distorted</span>
+      <p>
+        Picture Identification Card
+        <div class="explanation" id="idexplain">
+          "Picture identification card means a document issued by the United States, a State government, or a political subdivision thereof, or a United States territory, that bears the photograph, the name of the individual identified, and the date of birth of that individual, and provides specific information sufficient for the issuing authority to confirm its validity, such as a passport, Permanent Resident Card (commonly known as a Green Card), or employment authorization document issued by the United States, a driver's license or other form of identification issued by a State or the District of Columbia; or a foreign government-issued equivalent of any of the documents listed above when the person who is the subject of the picture identification card is a non-U.S. citizen located outside the United States at the time of original production and the producer maintaining the required records, whether a U.S. citizen or non-U.S. citizen, is located outside the United States on the original production date. The picture identification card must be valid as of the original production date."
+        </div>
+        <span id="idbutton" style="padding-right:100px;">(?)</span><input type='file' accept='image/*' onchange='openFile(event)'><br>
+        <img id='output1'>
+      </p>
+      <p>
+        Secondary Model ID
+        <input type='file' accept='image/*' onchange='openFile2(event)'><br>
+        <div class="italics">Secondary photo ID is required when the photo in the primary ID is unrecognizable / out of date.</div>
+        <img id='output2'>
+
+      </p>
+      <br>
+      <button id ="publish" onclick="printtopdf()" class="wide">Save as pdf</button>
+      <br>
+      <span style="font-size:12px">This will NOT work if you have not upladed ID images</span>
+    </div>
+    <div class="footer">
+      <h3>DOWNLOADING THIS DOCUMENT ALONE WILL NOT SATISFY 2257 RECORD KEEPING REQUIREMENTS</h3>
+      <h4>there are legal requirements on how you keep these records
+      <br>
+      see 28 CFR <a href="https://www.law.cornell.edu/cfr/text/28/75.2">§ 75.2</a>, <a href="https://www.law.cornell.edu/cfr/text/28/75.3">§ 75.3</a>, and <a href="https://www.law.cornell.edu/cfr/text/28/75.4">§ 75.4</a> for full requirements.</h4>
+      <p> § 75.2(a)(1) - "the records shall include a copy of the depiction, and. where the depiction is published on an Internet computer site or service, a copy of any URL associated with the depiction"</p>
+      <p> § 75.2(c) - The records only need to be current at date of production. If a new piece of media, including web URL, is created after production of this record "the producer may add the additional title or identifying number and the names of the performer to the existing records"</p>
+      <p>§ 75.2(d) "records shall be organized alphabetically, or numerically where appropriate, by the legal name of the performer (by last or family name, then first or given name), and shall be indexed or cross-referenced to each alias or other name used and to each title or identifying number of the [media]. If the producer subsequently produces an additional [media] ... the producer shall add the additional title or identifying number and the names of the performer to the existing records"</p>
+      <p>§ 75.2(e) "Records required to be maintained under this part shall be segregated from all other records, shall not contain any other records, and shall not be contained within any other records."</p>
+      <p>§ 75.2(f) "Records required to be maintained under this part may be kept either in hard copy or in digital form, provided that they include scanned copies of forms of identification and that there is a custodian of the records who can authenticate each digital record."</p>
+      <p>§ 75.3 "Records required to be maintained under this part shall be categorized alphabetically, or numerically where appropriate, and retrievable to: All name(s) of each performer, including any alias, maiden name, nickname, stage name or professional name of the performer; and according to the title, number, or other similar identifier of each book, magazine, periodical, film, videotape, digitally- or computer-manipulated image, digital image, or picture, or other matter (including but not limited to Internet computer site or services)."</p>
+    </div>
+  </body>
+<script src="script.js"></script>
+<script src="print.js"></script>
+</html>
