@@ -18,7 +18,7 @@ var name ="";
   var model1name = document.getElementById("model1name").value;
   var model1addy = document.getElementById("model1addy").value;
   var date = document.getElementById("date").value;
-  var xmargin = 15;
+  var xmargin = 15; // default space from left edge of the page
   var yline = 30;   // will be incremented to put each line further down on the page
   doc.setFontSize(15);
 
@@ -29,6 +29,7 @@ var name ="";
     doc.text(30,15, 'Exclusive Content Model Release Agreement (the \"Agreement\")');
   }
 
+  // draws a line between the top of the document and the clauses
   doc.setLineWidth(0.25);
   doc.line(60, 62, 140, 62);
 
@@ -152,6 +153,7 @@ var name ="";
   doc.addImage(imgData2, 'png', 10, yline+4, 100, yline-480);
   doc.line(12, yline+22, 100, yline+22);
 
+  // witness signature, if applicable
   yline+=50;
   if (document.getElementById("witcheck").checked){
     doc.text(xmargin, yline, 'Witness: ' + document.getElementById("witness").value);

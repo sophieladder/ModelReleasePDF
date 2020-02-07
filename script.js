@@ -3,8 +3,9 @@ var sig2 = document.getElementById('signature2');
 var sig3 = document.getElementById('signature3');
 var idimg1 = "";
 var idimg2 = "";
-var formtype = "shared";
+var formtype = "shared"; //by default the form is shared
 
+//change the form to exclusive content and back to shared
 document.getElementById('form_share').addEventListener('click', function () {
 formtype = "shared";
 document.getElementById("model1name").value = "MODEL 1 FULL LEGAL NAME";
@@ -14,6 +15,7 @@ formtype = "exclude";
 document.getElementById("model1name").value = "MODEL 1 (OWNER) FULL LEGAL NAME";
 });
 
+// show and hide the witness signature field
 function wit(){
   var x = document.getElementById("witness");
   if (document.getElementById('witcheck').checked) {
@@ -29,14 +31,7 @@ function wit(){
     document.getElementById("witness_sig").style.display = "none";
   }
 }
-function tests(){
-  if (document.getElementsByName("group1")[0].checked){
-    alert ("one");
-  }
-  else {
-    alert("twp");
-  }
-}
+
 // Adjust canvas coordinate space taking into account pixel ratio,
 // to make it look crisp on mobile devices.
 // This also causes canvas to be cleared.
@@ -60,10 +55,12 @@ function resizeCanvas() {
 
 resizeCanvas();
 
+//signature pads
 var signaturePad1 = new SignaturePad(sig1, {});
 var signaturePad2 = new SignaturePad(sig2, {});
 var signaturePad3 = new SignaturePad(sig3, {});
 
+//clear signatures
 document.getElementById('clear').addEventListener('click', function () {
 signaturePad1.clear();
 });
@@ -74,9 +71,9 @@ document.getElementById('clear3').addEventListener('click', function () {
 signaturePad3.clear();
 });
 
+// open picture ID for Model 1
 var openFile = function(event) {
   var input = event.target;
-
   var reader = new FileReader();
   reader.onload = function(){
     var dataURL = reader.result;
@@ -87,9 +84,9 @@ var openFile = function(event) {
   reader.readAsDataURL(input.files[0]);
 };
 
+// open picture ID for Model 2
 var openFile2 = function(event) {
   var input = event.target;
-
   var reader2 = new FileReader();
   reader2.onload = function(){
     var dataURL2 = reader2.result;
@@ -129,6 +126,8 @@ function generateForm() {
     document.getElementById("fill_2name").innerHTML = document.getElementById("model2name").value;
     document.getElementById("fill_2add").innerHTML = document.getElementById("model2addy").value;
 
+    // iterates "the PARTIES" or "the OWNER" over the
+    // document based on shared or exclusive
     var names = document.getElementsByClassName("name");
     for(var i = 0; i < names.length; i++)
     {
@@ -178,7 +177,6 @@ function generateForm() {
     document.getElementById("fill_premium").innerHTML = document.getElementById("premium").value;
   }
 }
-
 
 // show or hide the selling restrictions at the top of the page
 function strict() {
