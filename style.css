@@ -82,6 +82,11 @@ h1 {
   max-width: 100%;
   background-color: #efeaf2;
 }
+.small-text {
+  font-size: 0.75em;
+  font-style: italic;
+  margin-top: -1em;
+}
 #bg {
   background-color: #e9edf1;
   display: none;
