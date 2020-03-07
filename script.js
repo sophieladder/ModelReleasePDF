@@ -165,7 +165,12 @@ function generateForm() {
     }
     else {
       if (formtype == "shared"){
-        document.getElementById("minclause").innerHTML = "6.2 No PARTY shall upload more than " + document.getElementById("mintime").value + " minutes of the Content to free-to-view services.";
+        if (document.getElementById("delay").checked){
+          document.getElementById("minclause").innerHTML = "6.2 No PARTY shall upload more than " + document.getElementById("mintime").value + " minutes of the Content to free-to-view services for the first " + document.getElementById("freedelay").value + " months after filming, after which both parties may upload the whole length video.";
+        }
+        else {
+          document.getElementById("minclause").innerHTML = "6.2 No PARTY shall upload more than " + document.getElementById("mintime").value + " minutes of the Content to free-to-view services.";
+        }
       }
       else {
         document.getElementById("minclause").innerHTML = "6.2 The OWNER shall not upload more than " + document.getElementById("mintime").value + " minutes of the Content to free-to-view services.";

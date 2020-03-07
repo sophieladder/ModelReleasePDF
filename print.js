@@ -103,7 +103,13 @@ var name ="";
     doc.text(xmargin+10, yline,'6.2 The '+ name +' SHALL be allowed to upload the Content, in whole or in part, to free-to-view services');
   }
   else {
-    doc.text(xmargin+10, yline, '6.2 The '+ name +' shall NOT upload more than '+ document.getElementById("mintime").value + ' minutes of the Content to free-to-view services.');
+    if(document.getElementById("delay").checked){
+      doc.text(xmargin+10, yline, '6.2 The '+ name +' shall NOT upload more than '+ document.getElementById("mintime").value + ' minutes of the Content to free-to-view services for the first ' + document.getElementById("freedelay").value + " months \nafter filming, after which both parties may upload the whole length video.");
+      yline+=3;
+    }
+    else {
+      doc.text(xmargin+10, yline, '6.2 The '+ name +' shall NOT upload more than '+ document.getElementById("mintime").value + ' minutes of the Content to free-to-view services.');
+    }
   }
   yline+=5;
   doc.text(xmargin+10, yline, '6.3 I hereby'+  document.getElementById("bundle").value + ' grant the '+ name +' permission to sell the Content with other pieces of intellectual property \nowned by that party as a single unit for a reduced group price (a “Bundle”).');
