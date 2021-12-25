@@ -79,7 +79,7 @@ var name ="";
   yline+=20;
 
   // selling conditions
-  doc.text(xmargin, yline, '6.  I hereby grant the '+ name +' permission to use, reproduce, sell, license, rent or otherwise distribute and publish, modify, edit and alter \nthe Content, except as limited below in 6.1 - 6.6. Furthermore, I hereby agree and authorize the '+ name +' to publish the Content online, \non the platform of their choice, including any Web platform where independent content uploaders can upload, publish, license and sell \ntheir original adult videos, services or other tangibles goods to final users, including all related subdomains or Web sites of such platform \n(all together referred to as the "Platform"), except as limited by 6.1 - 6.6, and such authorization is given for an unlimited time;');
+  doc.text(xmargin, yline, '6.  I hereby grant the '+ name +' permission to use, reproduce, sell, license, rent or otherwise distribute and publish, modify, edit and alter \nthe Content, except as limited below in 6.1 - 6.6. Furthermore, I hereby agree and authorize the '+ name +' to publish the Content online, \non the platform of their choice, including any Web platform where independent content uploaders can upload, publish, license and sell \ntheir original adult videos, services or other tangibles goods to final users and where such final users may download the Content, including all related subdomains or Web sites of such platform \n(all together referred to as the "Platform"), except as limited by 6.1 - 6.6, and such authorization is given for an unlimited time;');
   yline+=20;
 
   if (document.getElementById("minvalue").value == 0){
