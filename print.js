@@ -29,9 +29,6 @@ var name ="";
     doc.text(30,15, 'Exclusive Content Model Release Agreement (the \"Agreement\")');
   }
 
-  // draws a line between the top of the document and the clauses
-  doc.setLineWidth(0.25);
-  doc.line(60, 62, 140, 62);
 
   // piece together the PDF line by line with the variables inputed
   doc.setFontSize(9);
@@ -53,6 +50,24 @@ var name ="";
     yline+=5;
   }
   doc.text(xmargin+30,yline, document.getElementById("model2name").value + ', residing at ' + document.getElementById("model2addy").value);
+
+  if (document.getElementById("3count").checked){
+    yline+=5;
+    doc.text(xmargin,yline, 'AND');
+    yline+=5;
+    doc.text(xmargin+30,yline, document.getElementById("model3name").value + ', residing at ' + document.getElementById("model3addy").value);
+  }
+  if (document.getElementById("4count").checked){
+    yline+=5;
+    doc.text(xmargin,yline, 'AND');
+    yline+=5;
+    doc.text(xmargin+30,yline, document.getElementById("model3name").value + ', residing at ' + document.getElementById("model3addy").value);
+    yline+=5;
+    doc.text(xmargin,yline, 'AND');
+    yline+=5;
+    doc.text(xmargin+30,yline, document.getElementById("model4name").value + ', residing at ' + document.getElementById("model4addy").value);
+  }
+
   yline+=8;
   if (formtype =="shared"){
     doc.text(xmargin,yline, 'hereinafter referred to collectively as the “PARTIES”, and individually as a “PARTY” all hereby agree as follows:')
@@ -60,7 +75,14 @@ var name ="";
   else {
     doc.text(xmargin,yline, 'hereby agree as follows')
   }
-  yline+=20;
+
+
+    // draws a line between the top of the document and the clauses
+    yline+=10;
+    doc.setLineWidth(0.25);
+    doc.line(60, yline, 140, yline);
+    yline+=10;
+
   doc.text(xmargin,yline, '1. I hereby represent that I am of sound mind and body, acting of my own free will and fully understand the terms of this\nAgreement, and I am legally able to execute this Agreement;')
   yline+=13;
   doc.text(xmargin,yline, '2. I hereby agree and represent that I am AT LEAST 18 YEARS OLD (OR THE AGE OF MAJORITY IN THE JURISDICTION\nIN WHICH I LIVE OR RESIDE FOR PLACES WHERE THE AGE OF MAJORITY IS OVER 18 YEARS) at the time that the Content\nis created. Further, I fully understand and acknowledge the adult nature of the Content and hereby consent to appear fully and/or\npartially nude in such Content; ')
@@ -79,8 +101,8 @@ var name ="";
   yline+=20;
 
   // selling conditions
-  doc.text(xmargin, yline, '6.  I hereby grant the '+ name +' permission to use, reproduce, sell, license, rent or otherwise distribute and publish, modify, edit and alter \nthe Content, except as limited below in 6.1 - 6.6. Furthermore, I hereby agree and authorize the '+ name +' to publish the Content online, \non the platform of their choice, including any Web platform where independent content uploaders can upload, publish, license and sell \ntheir original adult videos, services or other tangibles goods to final users and where such final users may download the Content, including all related subdomains or Web sites of such platform \n(all together referred to as the "Platform"), except as limited by 6.1 - 6.6, and such authorization is given for an unlimited time;');
-  yline+=20;
+  doc.text(xmargin, yline, '6.  I hereby grant the '+ name +' permission to use, reproduce, sell, license, rent or otherwise distribute and publish, modify, edit and alter \nthe Content, except as limited below in 6.1 - 6.6. Furthermore, I hereby agree and authorize the '+ name +' to publish the Content online, \non the platform of their choice, including any Web platform where independent content uploaders can upload, publish, license and sell \ntheir original adult videos, services or other tangibles goods to final users and where such final users may download the Content, including \nall related subdomains or Web sites of such platform (all together referred to as the "Platform"), except as limited by 6.1 - 6.6, and such \nauthorization is given for an unlimited time;');
+  yline+=27;
 
   if (document.getElementById("minvalue").value == 0){
     doc.text(xmargin+10, yline,'6.1 I hereby grant the '+ name +' permission to sell the Content with no minimum value');
@@ -148,30 +170,63 @@ var name ="";
   var imgData1 = window.signaturePad1.toDataURL('image/png');
   doc.addImage(imgData1, 'png', 10, yline+4, 100, yline-440);
   doc.setLineWidth(0.25);
-  doc.line(12, yline+22, 100, yline+22);
+  doc.line(12, yline+13, 100, yline+13);
 
-  yline+=30;
+  yline+=25;
   // model 2 name and date
   doc.text(xmargin, yline, document.getElementById("model2name").value + ' \nRead and accepted this day, ' + document.getElementById('sigdate').value);
 
   // model 2 signature
   var imgData2 = window.signaturePad2.toDataURL('image/png');
   doc.addImage(imgData2, 'png', 10, yline+4, 100, yline-480);
-  doc.line(12, yline+22, 100, yline+22);
+  doc.line(12, yline+13, 100, yline+13);
+
+  if (document.getElementById("3count").checked){
+    yline+=25;
+    // model 3 name and date
+    doc.text(xmargin, yline, document.getElementById("model3name").value + ' \nRead and accepted this day, ' + document.getElementById('sigdate').value);
+    // model 3 signature
+    var imgData3 = window.signaturePad3.toDataURL('image/png');
+    doc.addImage(imgData3, 'png', 10, yline+4, 100, yline-480);
+    doc.line(12, yline+13, 100, yline+13);
+  }
+  if (document.getElementById("4count").checked){
+    yline+=25;
+    // model 3 name and date
+    doc.text(xmargin, yline, document.getElementById("model3name").value + ' \nRead and accepted this day, ' + document.getElementById('sigdate').value);
+    // model 3 signature
+    var imgData3 = window.signaturePad3.toDataURL('image/png');
+    doc.addImage(imgData3, 'png', 10, yline+4, 100, yline-480);
+    doc.line(12, yline+13, 100, yline+13);
+    yline+=25;
+    // model 4 name and date
+    doc.text(xmargin, yline, document.getElementById("model4name").value + ' \nRead and accepted this day, ' + document.getElementById('sigdate').value);
+    // model 4 signature
+    var imgData4 = window.signaturePad4.toDataURL('image/png');
+    doc.addImage(imgData4, 'png', 10, yline+4, 100, yline-480);
+    doc.line(12, yline+13, 100, yline+13);
+  }
 
   // witness signature, if applicable
-  yline+=50;
+  yline+=25;
   if (document.getElementById("witcheck").checked){
     doc.text(xmargin, yline, 'Witness: ' + document.getElementById("witness").value);
-    var imgData3 = window.signaturePad3.toDataURL('image/png');
-    doc.addImage(imgData3, 'png', 10, yline+4, 100, yline-520);
-    doc.line(12, yline+22, 100, yline+22);
+    var imgWit = window.witnesssig.toDataURL('image/png');
+    doc.addImage(imgWit, 'png', 10, yline+4, 100, yline-520);
+    doc.line(12, yline+13, 100, yline+13);
   }
 
   // adds another page for the IDs
   doc.addPage("letter","p");
-  doc.addImage(window.idimg1, 'png', 15, 40, 170, 104);
-  doc.addImage(window.idimg2, 'png', 15, 150, 170, 104);
+  doc.addImage(window.idimg1, 'png', 5, 10, 106, 66);
+  doc.addImage(window.idimg2, 'png', 105, 10, 106, 66);
+  if (document.getElementById("3count").checked){
+    doc.addImage(window.idimg3, 'png', 5, 80, 106, 66);
+  }
+  if (document.getElementById("4count").checked){
+    doc.addImage(window.idimg3, 'png', 5, 80, 106, 66);
+    doc.addImage(window.idimg4, 'png', 105, 80, 106, 66);
+  }
 
   doc.save('release.pdf');
 }

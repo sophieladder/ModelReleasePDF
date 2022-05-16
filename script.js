@@ -1,8 +1,12 @@
 var sig1 = document.getElementById('signature1');
 var sig2 = document.getElementById('signature2');
 var sig3 = document.getElementById('signature3');
+var sig4 = document.getElementById('signature4');
+var witsig = document.getElementById('witnesssig');
 var idimg1 = "";
 var idimg2 = "";
+var idimg3 = "";
+var idimg4 = "";
 var formtype = "shared"; //by default the form is shared
 
 //change the form to exclusive content and back to shared
@@ -22,16 +26,61 @@ function wit(){
     document.getElementById('witness').style.display = "inline";
     document.getElementById("witness_sig").style.display = "block";
     var ratio =  Math.max(window.devicePixelRatio || 1, 1);
-    sig3.width = sig3.offsetWidth * ratio;
-    sig3.height = sig3.offsetHeight * ratio;
-    sig3.getContext("2d").scale(ratio, ratio);
+    witsig.width = witsig.offsetWidth * ratio;
+    witsig.height = witsig.offsetHeight * ratio;
+    witsig.getContext("2d").scale(ratio, ratio);
   }
   else {
     document.getElementById('witness').style.display = "none";
     document.getElementById("witness_sig").style.display = "none";
   }
 }
+// show and hide the model 3 signature field
+function twomod(){
+  document.getElementById('model3').style.display = "none";
+  document.getElementById("third_sig").style.display = "none";
+  document.getElementById('model4').style.display = "none";
+  document.getElementById("fourth_sig").style.display = "none";
+  document.getElementById("threeup").style.display = "none";
+  document.getElementById("fourup").style.display = "none";
+  document.getElementById("thirdtext").style.display = "none";
+  document.getElementById("fourthtext").style.display = "none";
+}
 
+function threemod(){
+  var x = document.getElementById("model3");
+  document.getElementById('model3').style.display = "inline";
+  document.getElementById("third_sig").style.display = "block";
+  document.getElementById("threeup").style.display = "inline";
+  document.getElementById("thirdtext").style.display = "inline";
+  var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+  sig3.width = sig3.offsetWidth * ratio;
+  sig3.height = sig3.offsetHeight * ratio;
+  sig3.getContext("2d").scale(ratio, ratio);
+  document.getElementById('model4').style.display = "none";
+  document.getElementById("fourth_sig").style.display = "none";
+  document.getElementById("fourthtext").style.display = "none";
+  document.getElementById("fourup").style.display = "none";
+}
+
+function fourmod(){
+  var x = document.getElementById("model4");
+  document.getElementById('model3').style.display = "inline";
+  document.getElementById("third_sig").style.display = "block";
+  document.getElementById('model4').style.display = "inline";
+  document.getElementById("fourth_sig").style.display = "block";
+  document.getElementById("threeup").style.display = "inline";
+  document.getElementById("fourup").style.display = "inline";
+  document.getElementById("thirdtext").style.display = "inline";
+  document.getElementById("fourthtext").style.display = "inline";
+  var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+  sig3.width = sig3.offsetWidth * ratio;
+  sig3.height = sig3.offsetHeight * ratio;
+  sig3.getContext("2d").scale(ratio, ratio);
+  sig4.width = sig4.offsetWidth * ratio;
+  sig4.height = sig4.offsetHeight * ratio;
+  sig4.getContext("2d").scale(ratio, ratio);
+}
 // Adjust canvas coordinate space taking into account pixel ratio,
 // to make it look crisp on mobile devices.
 // This also causes canvas to be cleared.
@@ -51,6 +100,14 @@ function resizeCanvas() {
   sig3.width = sig3.offsetWidth * ratio;
   sig3.height = sig3.offsetHeight * ratio;
   sig3.getContext("2d").scale(ratio, ratio);
+
+  sig4.width = sig4.offsetWidth * ratio;
+  sig4.height = sig4.offsetHeight * ratio;
+  sig4.getContext("2d").scale(ratio, ratio);
+
+  witsig.width = witsig.offsetWidth * ratio;
+  witsig.height = witsig.offsetHeight * ratio;
+  witsig.getContext("2d").scale(ratio, ratio);
 }
 
 resizeCanvas();
@@ -59,6 +116,8 @@ resizeCanvas();
 var signaturePad1 = new SignaturePad(sig1, {});
 var signaturePad2 = new SignaturePad(sig2, {});
 var signaturePad3 = new SignaturePad(sig3, {});
+var signaturePad4 = new SignaturePad(sig4, {});
+var witsigPad = new SignaturePad(witsig, {});
 
 //clear signatures
 document.getElementById('clear').addEventListener('click', function () {
@@ -69,6 +128,12 @@ signaturePad2.clear();
 });
 document.getElementById('clear3').addEventListener('click', function () {
 signaturePad3.clear();
+});
+document.getElementById('clear4').addEventListener('click', function () {
+signaturePad4.clear();
+});
+document.getElementById('clear5').addEventListener('click', function () {
+witsigPad.clear();
 });
 
 // open picture ID for Model 1
@@ -95,6 +160,32 @@ var openFile2 = function(event) {
     output2.src = dataURL2;
   };
   reader2.readAsDataURL(input.files[0]);
+};
+
+// open picture ID for Model 3
+var openFile3 = function(event) {
+  var input = event.target;
+  var reader3 = new FileReader();
+  reader3.onload = function(){
+    var dataURL3 = reader3.result;
+    window.idimg3 = reader3.result;
+    var output3 = document.getElementById('output3');
+    output3.src = dataURL3;
+  };
+  reader3.readAsDataURL(input.files[0]);
+};
+
+// open picture ID for Model 4
+var openFile4 = function(event) {
+  var input = event.target;
+  var reader4 = new FileReader();
+  reader4.onload = function(){
+    var dataURL4 = reader4.result;
+    window.idimg4 = reader4.result;
+    var output4 = document.getElementById('output4');
+    output4.src = dataURL4;
+  };
+  reader4.readAsDataURL(input.files[0]);
 };
 
 // takes the values the users have entered and fills the form
@@ -125,6 +216,10 @@ function generateForm() {
     }
     document.getElementById("fill_2name").innerHTML = document.getElementById("model2name").value;
     document.getElementById("fill_2add").innerHTML = document.getElementById("model2addy").value;
+    document.getElementById("fill_3name").innerHTML = document.getElementById("model3name").value;
+    document.getElementById("fill_3add").innerHTML = document.getElementById("model3addy").value;
+    document.getElementById("fill_4name").innerHTML = document.getElementById("model4name").value;
+    document.getElementById("fill_4add").innerHTML = document.getElementById("model4addy").value;
 
     // iterates "the PARTIES" or "the OWNER" over the
     // document based on shared or exclusive

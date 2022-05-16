@@ -15,20 +15,40 @@
     <div class="small-text"><p>This is a Model Release, not a 2257 form. For a beta 2257 for check <a href="https://sophieladder.com/files/2257form/">here</a></p></div>
     <p>1. Fill out fields below <br>2. Click "Generate Form" <br>3. Read contract <br>4.Fill out Agreement Acceptance fields <br>5. Download ("save as PDF") </p>
 
+    <form class="modelcounter">
+      <input type="radio" id="2count" name="modelcount" value="2Model" checked onclick="twomod();">
+      <label for="2count">2 Models</label>
+      <input type="radio" id="3count" name="modelcount" value="3Model" onclick="threemod();">
+      <label for="3count">3 Models</label>
+      <input type="radio" id="4count" name="modelcount" value="4Model" onclick="fourmod();">
+      <label for="4count">4 Models</label>
+    </form>
+    <br>
     <input type="radio" id="form_share" name="formtype" value="shared" checked>
     <label for="form_share">Shared Content</label>
     <input type="radio" id="form_exclude" name="formtype" value="exclusive">
     <label for="form_share">Exclusive Content</label>
-    <br>
+    <br><br>
     <input type="text" class="wide" id="model1name" name="Model 1 Name" placeholder="MODEL 1 FULL LEGAL NAME"><br>
     <input type="text" class="wide" id="model1addy" name="Model 1 Address" placeholder="MODEL 1 FULL ADDRESS"><br>
     <input type="text" class="wide" id="model2name" name="Model 2 Name" placeholder="MODEL 2 FULL LEGAL NAME"><br>
     <input type="text" class="wide" id="model2addy" name="Model 2 Address" placeholder="MODEL 2 FULL ADDRESS"><br>
+    <span id="model3">
+      <input type="text" class="wide" id="model3name" name="Model 3 Name" placeholder="MODEL 3 FULL LEGAL NAME"><br>
+      <input type="text" class="wide" id="model3addy" name="Model 3 Address" placeholder="MODEL 3 FULL ADDRESS"><br>
+    </span>
+    <span id="model4">
+      <input type="text" class="wide" id="model4name" name="Model 4 Name" placeholder="MODEL 4 FULL LEGAL NAME"><br>
+      <input type="text" class="wide" id="model4addy" name="Model 4 Address" placeholder="MODEL 4 FULL ADDRESS"><br>
+    </span>
+
     <br>
     <input type="text" class="wide" id="content" placeholder="NAME/DESCRIBE VIDEO AND/ OR PICTURES"><br>
     film date <input type="date" id="date" ><br>
     <input type="text" id="locality" placeholder="LOCALITY"><br><br>
     <h4>Optional Fields:</h4>
+
+
     Witness <label class="switch"><input type="checkbox" id="witcheck" onclick="wit();"><span class="slider"></span></label><br>
     <input type="text" id="witness" class="wide" placeholder="Witness Name">
     <br>
@@ -65,6 +85,14 @@
     <span id="model2ident"></span><br>
     <span id="fill_2name"></span>
     <span>, residing at </span> <span id="fill_2add"></span>
+    <span id="thirdtext">
+      <br>AND<br><span id="fill_3name"></span>
+      <span>, residing at </span> <span id="fill_3add"></span>
+    </span>
+    <span id="fourthtext">
+      <br>AND<br><span id="fill_4name"></span>
+      <span>, residing at </span> <span id="fill_4add"></span>
+    </span>
     <span id="intro2"></span>
     </p>
       <ol>
@@ -111,12 +139,26 @@
         <canvas id="signature2" class="signature-pad" width=400 height=200></canvas>
       </div>
       <button id="clear2">Clear</button> <br><br>
-      <div id="witness_sig">
-        WITNESS SIGNATURE
+      <div id="third_sig">
+        MODEL 3 SIGNATURE
         <div class="wrapper">
           <canvas id="signature3" class="signature-pad" width=600 height=100></canvas>
         </div>
         <button id="clear3">Clear</button> <br>
+      </div>
+      <div id="fourth_sig">
+        MODEL 4 SIGNATURE
+        <div class="wrapper">
+          <canvas id="signature4" class="signature-pad" width=600 height=100></canvas>
+        </div>
+        <button id="clear4">Clear</button> <br>
+      </div>
+      <div id="witness_sig">
+        WITNESS SIGNATURE
+        <div class="wrapper">
+          <canvas id="witnesssig" class="signature-pad" width=600 height=100></canvas>
+        </div>
+        <button id="clear5">Clear</button> <br>
       </div>
 
       <br><span style="font-size:14px">Upload pictures of both model's photo ID. note, this should be in landscape format as portrait photos will <be></be> distorted</span>
@@ -126,7 +168,17 @@
       <br>Model 2 ID
       <input type='file' accept='image/*' onchange='openFile2(event)'><br>
       <img id='output2'>
-      <br>
+      <span id="threeup">
+        <br>Model 3 ID
+        <input type='file' accept='image/*' onchange='openFile3(event)'><br>
+        <img id='output3'>
+      </span>
+      <span id="fourup">
+        <br>Model 4 ID
+        <input type='file' accept='image/*' onchange='openFile4(event)'><br>
+        <img id='output4'>
+        <br>
+      </span>
       <button id ="publish" onclick="printtopdf()" class="wide">Save as pdf</button>
       <br>
       <span style="font-size:12px">This will NOT work if you have not upladed ID images</span>
