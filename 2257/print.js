@@ -12,86 +12,95 @@ function printtopdf() {
   var modelname = firstname + " " + lastname;
   var bday = document.getElementById("bday").value;
   var date = document.getElementById("date").value;
+  var sigdate = document.getElementById("sigdate").value;
   var shootID = document.getElementById("content").value;
   var address = document.getElementById("modeladdy").value;
   var urls = document.getElementById("URL").value;
   var url_array = urls.split(",");
 
+  var nameArray = [];
+
+  if (document.getElementById("maidenname").value != ""){
+    nameArray.push(document.getElementById("maidenname").value);
+  }
+  if (document.getElementById("alias").value != ""){
+    nameArray.push(document.getElementById("alias").value);
+  }
+  if (document.getElementById("nickname").value != ""){
+    nameArray.push(document.getElementById("nickname").value);
+  }
+  if (document.getElementById("stagename").value != ""){
+    nameArray.push(document.getElementById("stagename").value);
+  }
+  if (document.getElementById("profname").value != ""){
+    nameArray.push(document.getElementById("profname").value);
+  }
+  if (document.getElementById("oldlegal").value != ""){
+    nameArray.push(document.getElementById("oldlegal").value);
+  }
+  if (document.getElementById("oldstagename").value != ""){
+    nameArray.push(document.getElementById("oldstagename").value);
+  }
+  if (document.getElementById("etc1").value != ""){
+    nameArray.push(document.getElementById("etc1").value);
+  }
+  if (document.getElementById("etc2").value != ""){
+    nameArray.push(document.getElementById("etc2").value);
+  }
+  if (document.getElementById("etc3").value != ""){
+    nameArray.push(document.getElementById("etc3").value);
+  }
+
   var xmargin = 15;
-  var yline = 30;   // will be incremented to put each line further down on the page
+  var yline = 40;   // will be incremented to put each line further down on the page
   doc.setFontSize(15);
   doc.setFontStyle("bold");
-  doc.text(10,15, '2257 Record Keeping Form');
-  doc.setFontSize(12);
-  doc.text(100,15,"Shoot ID: " + shootID);
-  doc.setFontSize(15);
-  doc.text(170,15, lastname);
+  doc.text(10,15, 'RECORDS KEEPING COMPLIANCE FORM (PURSUANT TO 18 U.S.C. § 2257)');
+  doc.text(10,25,"Shoot ID: " + shootID);
+  doc.text(150,25, lastname);
   doc.setLineWidth(0.25);
-  doc.line(28,20,170,20);
+  doc.line(10,16,200,16);
 
   // piece together the PDF line by line with the variables inputed
-  doc.setFontStyle("default");
   doc.setFontSize(12);
-  doc.text(xmargin,yline, "Performer Name: " + modelname);
+  doc.setFontStyle("default");
+  doc.setFontStyle("bold");
+  doc.text(xmargin,yline, "Personal Information:");
   yline+=6;
-  doc.text(xmargin, yline, "DOB: " + bday);
+  doc.setFontStyle("default");
+  doc.text(xmargin,yline, "Performer Legal Name: " + modelname);
   doc.text(120, yline, "Shoot Date: " + date);
+  yline+=6;
+  doc.text(xmargin, yline, "DOB [YYYY-MM-DD]: " + bday);
   yline+=6;
   doc.text(xmargin, yline, "Address: " + address);
 
   yline+=15;
+  doc.setFontStyle("bold");
   doc.text(xmargin, yline, "Previous / Other Names:");
+  doc.setFontStyle("default");
   yline+=7;
-  if (document.getElementById("maidenname").value != ""){
-    doc.text(xmargin, yline, document.getElementById("maidenname").value);
-    yline+=6;
-  }
-  if (document.getElementById("alias").value != ""){
-    doc.text(xmargin, yline, document.getElementById("alias").value);
-    yline+=6;
-  }
-  if (document.getElementById("nickname").value != ""){
-    doc.text(xmargin, yline, document.getElementById("nickname").value);
-    yline+=6;
-  }
-  if (document.getElementById("stagename").value != ""){
-    doc.text(xmargin, yline, document.getElementById("stagename").value);
-    yline+=6;
-  }
-  if (document.getElementById("profname").value != ""){
-    doc.text(xmargin, yline, document.getElementById("profname").value);
-    yline+=6;
-  }
-  if (document.getElementById("oldlegal").value != ""){
-    doc.text(xmargin, yline, document.getElementById("oldlegal").value);
-    yline+=6;
-  }
-  if (document.getElementById("oldstagename").value != ""){
-    doc.text(xmargin, yline, document.getElementById("oldstagename").value);
-    yline+=6;
-  }
-  if (document.getElementById("etc1").value != ""){
-    doc.text(xmargin, yline, document.getElementById("etc1").value);
-    yline+=6;
-  }
-  if (document.getElementById("etc2").value != ""){
-    doc.text(xmargin, yline, document.getElementById("etc2").value);
-    yline+=6;
-  }
-  if (document.getElementById("etc3").value != ""){
-    doc.text(xmargin, yline, document.getElementById("etc3").value);
-    yline+=6;
+
+  for (let i = 0; i < nameArray.length; i++) {
+    doc.text(xmargin, yline, nameArray[i]);
+    if (xmargin <= 120){
+      xmargin += 50;
+    }
+    else {
+      xmargin = 15;
+      yline+=6;
+    }
   }
 
   yline+=12;
+  xmargin=15;
   doc.text(xmargin, yline, "Photocopy of ID");
   yline+=6;
   doc.addImage(window.idimg1, 'png', 5, yline, 100, 60);
-  yline+=70;
   if (window.idimg2 != ""){
     doc.addImage(window.idimg2, 'png', 115, yline, 100, 60);
   }
-
+  yline+=70;
   doc.text(xmargin, yline, "URLS associated with this work:");
   yline+=6;
   var i = 0;
@@ -102,18 +111,15 @@ function printtopdf() {
   }
 
   // model name and date signed
-  doc.text(xmargin,232, "Signed " + modelname);
-  doc.text(xmargin, 240, "I declare under penalty of perjury under the laws of the United States of America that \nthe foregoing is true and correct.");
+    doc.setFontStyle("bold");
+  doc.text(xmargin,215, "Signed " + modelname +" on " +sigdate);
+  doc.text(xmargin, 225, "UNDER 28 U.S.C § 1746 AND THE PENALTIES OF PERJURY UNDER THE LAW OF THE \nUNITED STATES, I SWEAR THAT THE FOREGOING INFORMATION IS TRUE AND CORRECT \nAND THAT EACH OF THE IDENTIFICATION DOCUMENTS WHICH I HAVE PROVIDED \nAND OF WHICH I HAVE SIGNS THE ATTACHED COPY WAS LAWFULLY OBTAINED BY ME \nAND HAS NOT BEEN FORGED OR ALTERED IN ANY WAY");
   // take the data from the signature pad (an HTML5 canvas), convert it to a png, and insert it into the PDF
   // model 1 signature
   var imgData1 = window.signaturePad1.toDataURL('image/png');
   doc.addImage(imgData1, 'png', 10, 248, 100, 15);
   doc.setLineWidth(0.25);
   doc.line(12, 264, 100, 264);
-
-
-
-
 
   doc.save('release.pdf');
 }

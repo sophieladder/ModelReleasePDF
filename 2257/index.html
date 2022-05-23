@@ -11,7 +11,11 @@
 <body>
   <div id="header">
     <h1>Online 2257 Form to PDF</h1>
+    <span class="italics">version 0.7</span><br><br>
     <input type="text" class="wide" id="content" placeholder="Shoot ID# or Name"><br><br>
+    <h3>Model Identifying Information</h3>
+    <p>Model is informed and understands that all information provided in this Record Keeping Compliance Form is being provided to comply with federal law and that any false or incomplete statement will subject the Model to both civil liability and federal and state criminal prosecution.</p>
+    <br>
     <input type="text" class="med" id="firstname" placeholder="First Name">
     <input type="text" class="med" id="lastname" placeholder="Last / Family Name">
     <br>
@@ -28,23 +32,24 @@
     <input type="text" class="wide" id="oldstagename" name="Former Stage Name" placeholder="Former Stage Name"><br>
     <input type="text" class="wide" id="etc1" name="Other Name" placeholder="Other Name"><br>
     <input type="text" class="wide" id="etc2" name="Other Name 2" placeholder="Other Name 2"><br>
-    <input type="text" class="wide" id="etc3" name="Other Name 3" placeholder="Other Name 3"><br>
+    <input type="text" class="wide" id="etc3" name="Other Name 3" placeholder="Other Name 3"><br><br>
     <h3>Copy of URLS</h3>
-    <span id="urlbutton" onmouseover="URLoverlay">?</span><input type="text" class="wide" id="URL" name="URLs" placeholder="URLs, separate with comma"><br>
-    <div class="explanation" id="urlexplain">
-      any URL where the content will be hosted. if no webpages yet exist you may leave it blank, but any future URLs where the content will be hosted must be added onto your record
-      <br>28 CFR § 75.2 <br><br>
-      <img src="img4.jpg" alt="">
-    </div>
-    <br>
-    film date <input type="date" id="date" ><br>
+    <p>You must list every URL where the content is hosted. If no webpages yet exist you may leave it blank (as is typically the case when filming), but any future URLs created where the content is hosted must be added onto your record.</p><br>
+    <span id="urlbutton" onmouseover="URLoverlay">?</span>
+    <input type="text" class="wide" id="URL" name="URLs" placeholder="URLs, separate with comma"><br>
+      <div class="explanation" id="urlexplain">
+        <p>Read the requirements in 28 CFR § 75.2 </p>
+        <img src="img4.jpg" alt="">
+      </div>
+    <br>film date <input type="date" id="date" ><br>
   </div>
 
     <br>
-    <div class="center" id="">
-      <p>UNDER 28 U.S.C.1746 AND THE PENALTIES OF PERJURY UNDER THE LAWS OF THE UNITED STATES, <br>I SWEAR THAT THE FOREGOING IS TRUE AND CORRECT,
-        <br> <input type="date" id="sigdate" class="date"></p>
-      <br>
+    <div class="center" id="sig">
+      <p style="max-width:80%; max-width:900px;">UNDER 28 U.S.C § 1746 AND THE PENALTIES OF PERJURY UNDER THE LAW OF THE UNITED STATES, I SWEAR THAT THE FOREGOING INFORMATION IS TRUE AND CORRECT AND THAT EACH OF THE IDENTIFICATION DOCUMENTS WHICH I HAVE PROVIDED WAS LAWFULLY OBTAINED BY ME AND HAS NOT BEEN FORGED OR ALTERED IN ANY WAY
+      </p>
+      <br><input type="date" id="sigdate" class="date">
+      <br><br>
       MODEL SIGNATURE
       <div class="wrapper">
         <canvas id="signature1" class="signature-pad" width=600 height=100></canvas>
@@ -52,28 +57,29 @@
       <button id="clear">Clear</button>
 
       <br><span style="font-size:14px">Upload pictures of the model's photo ID. note, this should be in landscape format as portrait photos will be distorted</span>
-      <p>
-        Picture Identification Card
-        <div class="explanation" id="idexplain">
+      <br><br><p>
+        Picture Identification Card         <span id="idbutton">?</span>
+        <div id="idexplain">
           "Picture identification card means a document issued by the United States, a State government, or a political subdivision thereof, or a United States territory, that bears the photograph, the name of the individual identified, and the date of birth of that individual, and provides specific information sufficient for the issuing authority to confirm its validity, such as a passport, Permanent Resident Card (commonly known as a Green Card), or employment authorization document issued by the United States, a driver's license or other form of identification issued by a State or the District of Columbia; or a foreign government-issued equivalent of any of the documents listed above when the person who is the subject of the picture identification card is a non-U.S. citizen located outside the United States at the time of original production and the producer maintaining the required records, whether a U.S. citizen or non-U.S. citizen, is located outside the United States on the original production date. The picture identification card must be valid as of the original production date."
         </div>
-        <span id="idbutton" style="padding-right:100px;">(?)</span><input type='file' accept='image/*' onchange='openFile(event)'><br>
+        <input type='file' accept='image/*' onchange='openFile(event)'><br>
         <img id='output1'>
       </p>
       <p>
         Secondary Model ID
         <input type='file' accept='image/*' onchange='openFile2(event)'><br>
-        <div class="italics">Secondary photo ID is required when the photo in the primary ID is unrecognizable / out of date.</div>
+        <div class="italics">Secondary photo ID is required if the photo in the primary ID is unrecognizable or out of date. <br>Seconday photo ID is optional in other cases.</div>
         <img id='output2'>
-
       </p>
+      <h3>DOWNLOADING THIS DOCUMENT ALONE WILL NOT SATISFY 2257 RECORD KEEPING REQUIREMENTS</h3>
+      <h4>there are legal requirements on how you keep these records
       <br>
+      see 28 CFR <a href="https://www.law.cornell.edu/cfr/text/28/75.2">§ 75.2</a>, <a href="https://www.law.cornell.edu/cfr/text/28/75.3">§ 75.3</a>, and <a href="https://www.law.cornell.edu/cfr/text/28/75.4">§ 75.4</a> for full requirements.</h4><br>
       <button id ="publish" onclick="printtopdf()" class="wide">Save as pdf</button>
       <br>
       <span style="font-size:12px">This will NOT work if you have not upladed ID images</span>
     </div>
     <div class="footer">
-      <h3>DOWNLOADING THIS DOCUMENT ALONE WILL NOT SATISFY 2257 RECORD KEEPING REQUIREMENTS</h3>
       <h4>there are legal requirements on how you keep these records
       <br>
       see 28 CFR <a href="https://www.law.cornell.edu/cfr/text/28/75.2">§ 75.2</a>, <a href="https://www.law.cornell.edu/cfr/text/28/75.3">§ 75.3</a>, and <a href="https://www.law.cornell.edu/cfr/text/28/75.4">§ 75.4</a> for full requirements.</h4>

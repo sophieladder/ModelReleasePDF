@@ -46,9 +46,18 @@ li {
   height: auto;
   background-color: white;
 }
+#idexplain {
+  display: none;
+  width: 900px;
+  max-width: 90%;
+  margin: auto;
+}
 #urlbutton {
-  padding-right: 20px;
   font-size: 1.2em;
+  padding: 20px;
+}
+#idbutton {
+  padding: 20px;
 }
 
 .grid-container {
@@ -92,8 +101,15 @@ li {
   background-color: #efeaf2;
   padding:15px 0;
 }
+#header > p, h1, h2, h3, h4{
+  max-width: 900px;
+  margin: auto;
+}
 h1 {
   font-size: 50px;
+}
+p {
+  margin: 0 auto;
 }
 .center {
   text-align: center;
@@ -116,11 +132,15 @@ h1 {
   width: 100%;
   max-width: 900px;
 }
+#sigdate {
+  font-size: 1.5em;
+}
 .footer {
   max-width: 100%;
   max-width: 900px;
   text-align: center;
   margin: 0 auto;
+  padding-top: 25px;
 }
 .tooltip {
   position: relative;
@@ -145,6 +165,9 @@ h1 {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+#sig {
+  padding: 25px 0;
 }
 #witness {
   display: none;
@@ -191,7 +214,7 @@ h1 {
 }
 .italics {
   font-style: italic;
-  font-size: 12px;
+  font-size: 16px;
 }
 input:checked + .slider {
   background-color: purple;

@@ -35,10 +35,7 @@ function URLoverlayoff(){
 }
 
 function IDoverlay(events){
-  var x = event.clientX;
-  var y = event.clientY;
   document.getElementById('idexplain').style.display = "block";
-  document.getElementById('idexplain').style.left = x + "px";
 }
 function IDoverlayoff(){
   document.getElementById('idexplain').style.display = "none";
