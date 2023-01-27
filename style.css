@@ -97,6 +97,9 @@ h1 {
 #restrictions {
   display: none;
 }
+#releasetime {
+  display: none;
+}
 #output1, #output2{
   width: 100%;
   max-width: 900px;

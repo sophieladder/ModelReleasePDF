@@ -239,7 +239,7 @@ function generateForm() {
     document.getElementById("fill_locality").innerHTML = document.getElementById("locality").value;
     document.getElementById("fill_locality2").innerHTML = document.getElementById("locality").value;
     document.getElementById("fill_minvalue").innerHTML = document.getElementById("minvalue").value;
-    document.getElementById("slength").innerHTML = "for the first " + document.getElementById("selltime").value +" after release";
+    document.getElementById("slength").innerHTML = `for the first ${document.getElementById("selltime").value} after release`;
 
     // changes the wording of the sale restrictions based on imput
     if (document.getElementById("mintime").value == 999){
@@ -275,6 +275,14 @@ function generateForm() {
     document.getElementById("fill_bundle").innerHTML = document.getElementById("bundle").value;
     document.getElementById("fill_giveaway").innerHTML = document.getElementById("giveaway").value;
     document.getElementById("fill_premium").innerHTML = document.getElementById("premium").value;
+    document.getElementById("fill_VOD").innerHTML = document.getElementById("VOD").value;
+  }
+  if (document.getElementById("timecheck").checked){
+    var retime = document.getElementById('releasedate').value;
+    document.getElementById("timeclause").innerHTML = ` shall not release the Content before ${retime}.`;
+  }
+  else {
+    document.getElementById("timeclause").innerHTML = " may publish the Content at any date of their choosing.";
   }
 }
 
@@ -285,5 +293,16 @@ function strict() {
   }
   else {
     document.getElementById('restrictions').style.display = "none";
+  }
+}
+// show or hide the release date
+function time() {
+  if (document.getElementById('timecheck').checked){
+    document.getElementById('releasetime').style.display = "inline";
+    document.getElementById('timetext').innerHTML = "Yes";
+  }
+  else {
+    document.getElementById('releasetime').style.display = "none";    
+    document.getElementById('timetext').innerHTML = "No";
   }
 }

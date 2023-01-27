@@ -12,7 +12,7 @@
 <body>
   <div id="header">
     <h1>Online Model Release</h1>
-    <div class="small-text"><p>This is a Model Release, not a 2257 form. For a beta 2257 form check <a href="https://sophieladder.com/files/2257form/">here</a></p></div>
+    <div class="small-text"><p>This is a Model Release, not a 2257 form. For a 2257 form check <a href="https://sophieladder.com/files/2257form/">here</a></p></div>
     <p>1. Fill out fields below <br>2. Click "Generate Form" <br>3. Read contract <br>4.Fill out Agreement Acceptance fields <br>5. Download ("save as PDF") </p>
 
     <form class="modelcounter">
@@ -68,8 +68,16 @@
         <br><br>
         Allow the other party to sell this in a bundle? <select name="" id="bundle"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select><br><br>
         Allow the other party to give this away as a reward? <select name="" id="giveaway"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select><br><br>
-        Allow the other party to upload this to paid subscription services?<select name="" id="premium"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select>
-        <div class="small-text">Member websites, OnlyFans, PornHub Premium, etc</div>
+        Allow the other party to upload this to paid subscription services run by the party?<select name="" id="premium"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select>
+        <div class="small-text">Member websites, OnlyFans, Fansly, JFF, etc</div>
+        <br>
+        Allow the other party to license the content to 3rd party streaming and Video-On-Demand  services?<select name="" id="VOD"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select><br><br>
+        <div class="small-text">Xvideos Red, Faphouse, Adult Empire, HotMovies, etc</div>
+        <br>
+        Set release date?
+        <label class="switch"><input type="checkbox" id="timecheck" onclick="time();"><span class="slider"></span></label>&nbsp;<span id="timetext">No</span>
+        <span id="releasetime"><br>Not Before: <input type="date" class="medium" value="" id="releasedate"></span>
+        <br>
       </p>
     </div>
     <p>      <button onclick="generateForm()" class="wide">Generate Form</button>  </p>
@@ -111,7 +119,9 @@
           <br> <span style="margin-left: 30px;" id="minclause">6.2 <span class="name"></span> shall not upload more than <span id="fill_mintime"></span> minutes of the Content to free-to-view services.</span>
           <br> <span style="margin-left: 30px;">6.3 I hereby <span id="fill_bundle"></span>  grant <span class="name"></span> permission to sell the Content with other pieces of intellectual property owned by that party as a single unit for a reduced group price (a “Bundle”).</span>
           <br> <span style="margin-left: 30px;">6.4 I hereby <span id="fill_giveaway"></span>  grant <span class="name"></span> permission to give away the Content as a part of contests, promotions, rewards, or other services.</span>
-          <br> <span style="margin-left: 30px;">6.5 I hereby <span id="fill_premium"></span> grant <span class="name"></span> permission to upload and/or license the Content for paid subscription streaming services. (eg. Pornhub Premium, OnlyFans, member websites)</span>
+          <br> <span style="margin-left: 30px;">6.5 I hereby <span id="fill_premium"></span> grant <span class="name"></span> permission to upload the Content to paid subscription services run by <span class="name"></span> (eg. Member website, OnlyFans, Fansly, etc)</span>
+          <br> <span style="margin-left: 30px;">6.6 I hereby <span id="fill_VOD"></span> grant <span class="name"></span> permission to license the Content to 3rd party Video-On-Demand and paid subscription streaming services. (eg. Xvideos Red, Faphouse, Adult Empire, HotMovies, etc)</span>
+          <br> <span style="margin-left: 30px;">6.7 <span class="name"></span> <span id="timeclause"></span> </span>
         </li>
         <li>I hereby agree to not disclose the other party's legal name or address (hereinafter referred to as "Confidential Information"), except as required by the Platform to sell the Content, or as required by the law, and shall refrain from disclosing such Confidential Information to any third party without prior, written approval from the other party, and shall protect such Confidential Information from inadvertent disclosure to a third party using the same care and diligence that I use to protect my own confidential information, but in no case less than reasonable care. I shall ensure that each of my employees, officers, directors, or agents who has access to Confidential Information disclosed under this Agreement is informed of its confidential nature and is required to abide by the terms of this Agreement. I shall promptly notify the affected party of any disclosure of such Confidential Information in violation of this Agreement or of any subpoena or other legal process requiring production or disclosure of said Confidential Information;</li>
         <li>I hereby understand and agree that the Content may be searchable by others through the Platform itself and through others partnered or networked entities of the Platform or <span class="name"></span> . Furthermore, I understand and agree that the Content may be searchable by publicly available search engines, and it is my sole responsibility should I wish not to appear, be found, or be removed of such search engines; </li>
