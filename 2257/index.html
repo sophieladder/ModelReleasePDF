@@ -10,79 +10,87 @@
 
 <body>
   <div id="header">
-    <h1>Online 2257 Form to PDF</h1>
-    <span class="italics">version 0.71</span><br><br>
-    <input type="text" class="wide" id="content" placeholder="Shoot ID# or Name"><br><br>
+    <h1>Online 2257 Form</h1>
+    <div class="small-text">
+      version 0.8
+      <p>This is a 2257 Records Keeping Form. You can find a model release <a href="https://sophieladder.com/tools/modelrelease/">here</a></p>
+      <p>Find print versions <a href="https://sophieladder.com/files/">here</a></p>
+    </div>
+  </div>
+  <hr>
+  <div id="main">
+    <input type="text" class="wide" id="content" placeholder="Shoot ID# or Name">
     <h3>Model Identifying Information</h3>
     <p>Model is informed and understands that all information provided in this Record Keeping Compliance Form is being provided to comply with federal law and that any false or incomplete statement will subject the Model to both civil liability and federal and state criminal prosecution.</p>
-    <br>
+    
     <input type="text" class="med" id="firstname" placeholder="First Name">
     <input type="text" class="med" id="lastname" placeholder="Last / Family Name">
-    <br>
-    Date of Birth<input type="date" id="bday" class="med"><br>
-    <input type="text" class="wide tall" id="modeladdy" name="Model Address" placeholder="FULL ADDRESS"><br>
-    <br>
+    <span class="enter">Date of Birth<input type="date" id="bday" class="med"></span>
+    <input type="text" class="wide tall" id="modeladdy" name="Model Address" placeholder="FULL ADDRESS">
+    
     <h3>Other names</h3>
-    <p>Federal Law requires "Any name, other than the performer's legal name, ever used by the performer, including the performer's maiden name, alias, nickname, stage name, or professional name." The following fields are examples, <strong>it does not matter which spot you put which entry in.</strong> </p>
-    <input type="text" class="wide" id="maidenname" name="Maiden Name" placeholder="Maiden Name"><br>
-    <input type="text" class="wide" id="alias" name="Alias" placeholder="Alias"><br>
-    <input type="text" class="wide" id="nickname" name="Nickname" placeholder="Nickname"><br>
-    <input type="text" class="wide" id="stagename" name="Stage Name" placeholder="Stage Name"><br>
-    <input type="text" class="wide" id="profname" name="Professional Name" placeholder="Professional Name"><br>
-    <input type="text" class="wide" id="oldlegal" name="Former Legal Name" placeholder="Former Legal Name"><br>
-    <input type="text" class="wide" id="oldstagename" name="Former Stage Name" placeholder="Former Stage Name"><br>
-    <input type="text" class="wide" id="etc1" name="Other Name" placeholder="Other Name"><br>
-    <input type="text" class="wide" id="etc2" name="Other Name 2" placeholder="Other Name 2"><br>
-    <input type="text" class="wide" id="etc3" name="Other Name 3" placeholder="Other Name 3"><br><br>
+    <p>Federal Law requires "Any name, other than the performer's legal name, ever used by the performer, including the performer's maiden name, alias, nickname, stage name, or professional name."<br> <strong>The following fields are examples, it does not matter which spot you put which entry in.</strong> </p>
+    <input type="text" class="wide" id="maidenname" name="Maiden Name" placeholder="Maiden Name">
+    <input type="text" class="wide" id="alias" name="Alias" placeholder="Alias">
+    <input type="text" class="wide" id="nickname" name="Nickname" placeholder="Nickname">
+    <input type="text" class="wide" id="stagename" name="Stage Name" placeholder="Stage Name">
+    <input type="text" class="wide" id="profname" name="Professional Name" placeholder="Professional Name">
+    <input type="text" class="wide" id="oldlegal" name="Former Legal Name" placeholder="Former Legal Name">
+    <input type="text" class="wide" id="oldstagename" name="Former Stage Name" placeholder="Former Stage Name">
+    <input type="text" class="wide" id="etc1" name="Other Name" placeholder="Other Name">
+    <input type="text" class="wide" id="etc2" name="Other Name 2" placeholder="Other Name 2">
+    <input type="text" class="wide" id="etc3" name="Other Name 3" placeholder="Other Name 3">
     <h3>Copy of URLS</h3>
-    <p>You must list every URL where the content is hosted. If no webpages yet exist you may leave it blank (as is typically the case when filming), but any future URLs created where the content is hosted must be added onto your record.</p><br>
+    <p>You must list every URL where the content is hosted. If no webpages yet exist you may leave it blank (as is typically the case when filming), but any future URLs created where the content is hosted must be added onto your record.</p>
     <span id="urlbutton" onmouseover="URLoverlay">?</span>
-    <input type="text" class="wide" id="URL" name="URLs" placeholder="URLs, separate with comma"><br>
+    <input type="text" class="wide" id="URL" name="URLs" placeholder="URLs, separate with comma">
       <div class="explanation" id="urlexplain">
         <p>Read the requirements in 28 CFR § 75.2 </p>
         <img src="img4.jpg" alt="">
       </div>
-    <br>film date <input type="date" id="date" ><br>
+    film date <input type="date" id="date" >
   </div>
 
-    <br>
+    <hr>
     <div class="center" id="sig">
-      <p style="max-width:80%; max-width:900px;">UNDER 28 U.S.C § 1746 AND THE PENALTIES OF PERJURY UNDER THE LAW OF THE UNITED STATES, I SWEAR THAT THE FOREGOING INFORMATION IS TRUE AND CORRECT AND THAT EACH OF THE IDENTIFICATION DOCUMENTS WHICH I HAVE PROVIDED WAS LAWFULLY OBTAINED BY ME AND HAS NOT BEEN FORGED OR ALTERED IN ANY WAY
-      </p>
-      <br><input type="date" id="sigdate" class="date">
-      <br><br>
+      <p>UNDER 28 U.S.C § 1746 AND THE PENALTIES OF PERJURY UNDER THE LAW OF THE UNITED STATES, I SWEAR THAT THE FOREGOING INFORMATION IS TRUE AND CORRECT AND THAT EACH OF THE IDENTIFICATION DOCUMENTS WHICH I HAVE PROVIDED WAS LAWFULLY OBTAINED BY ME AND HAS NOT BEEN FORGED OR ALTERED IN ANY WAY</p>
+      <input type="date" id="sigdate" class="date">
+      
       MODEL SIGNATURE
       <div class="wrapper">
         <canvas id="signature1" class="signature-pad" width=600 height=100></canvas>
       </div>
-      <button id="clear">Clear</button>
-
-      <br><span style="font-size:14px">Upload pictures of the model's photo ID. note, this should be in landscape format as portrait photos will be distorted</span>
-      <br><br><p>
-        Picture Identification Card         <span id="idbutton">?</span>
+      <button id="clear">reset signature</button>
+      <p>
+        Upload pictures of the model's photo ID. <br>
+        <span class="small-text">Note, this should be in landscape format as portrait photos will be distorted</span>
+      </p>
+      
+      <p>
+        Picture Identification Card<span id="idbutton">?</span>
         <div id="idexplain">
           "Picture identification card means a document issued by the United States, a State government, or a political subdivision thereof, or a United States territory, that bears the photograph, the name of the individual identified, and the date of birth of that individual, and provides specific information sufficient for the issuing authority to confirm its validity, such as a passport, Permanent Resident Card (commonly known as a Green Card), or employment authorization document issued by the United States, a driver's license or other form of identification issued by a State or the District of Columbia; or a foreign government-issued equivalent of any of the documents listed above when the person who is the subject of the picture identification card is a non-U.S. citizen located outside the United States at the time of original production and the producer maintaining the required records, whether a U.S. citizen or non-U.S. citizen, is located outside the United States on the original production date. The picture identification card must be valid as of the original production date."
         </div>
-        <input type='file' accept='image/*' onchange='openFile(event)'><br>
+        <input type='file' accept='image/*' onchange='openFile(event)' id="idu">
         <img id='output1'>
       </p>
       <p>
         Secondary Model ID
-        <input type='file' accept='image/*' onchange='openFile2(event)'><br>
-        <div class="italics">Secondary photo ID is required if the photo in the primary ID is unrecognizable or out of date. <br>Seconday photo ID is optional in other cases.</div>
+        <input type='file' accept='image/*' onchange='openFile2(event)'>
+        <div class="italics">Secondary photo ID is required if the photo in the primary ID is unrecognizable or out of date. Seconday photo ID is optional in other cases.</div>
         <img id='output2'>
       </p>
       <h3>DOWNLOADING THIS DOCUMENT ALONE WILL NOT SATISFY 2257 RECORD KEEPING REQUIREMENTS</h3>
       <h4>there are legal requirements on how you keep these records
-      <br>
-      see 28 CFR <a href="https://www.law.cornell.edu/cfr/text/28/75.2">§ 75.2</a>, <a href="https://www.law.cornell.edu/cfr/text/28/75.3">§ 75.3</a>, and <a href="https://www.law.cornell.edu/cfr/text/28/75.4">§ 75.4</a> for full requirements.</h4><br>
+      
+      see 28 CFR <a href="https://www.law.cornell.edu/cfr/text/28/75.2">§ 75.2</a>, <a href="https://www.law.cornell.edu/cfr/text/28/75.3">§ 75.3</a>, and <a href="https://www.law.cornell.edu/cfr/text/28/75.4">§ 75.4</a> for full requirements.</h4>
       <button id ="publish" onclick="printtopdf()" class="wide">Save as pdf</button>
-      <br>
+      
       <span style="font-size:12px">This will NOT work if you have not upladed ID images</span>
     </div>
     <div class="footer">
       <h4>there are legal requirements on how you keep these records
-      <br>
+      
       see 28 CFR <a href="https://www.law.cornell.edu/cfr/text/28/75.2">§ 75.2</a>, <a href="https://www.law.cornell.edu/cfr/text/28/75.3">§ 75.3</a>, and <a href="https://www.law.cornell.edu/cfr/text/28/75.4">§ 75.4</a> for full requirements.</h4>
       <p> § 75.2(a)(1) - "the records shall include a copy of the depiction, and. where the depiction is published on an Internet computer site or service, a copy of any URL associated with the depiction"</p>
       <p> § 75.2(c) - The records only need to be current at date of production. If a new piece of media, including web URL, is created after production of this record "the producer may add the additional title or identifying number and the names of the performer to the existing records"</p>

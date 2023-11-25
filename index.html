@@ -12,9 +12,38 @@
 <body>
   <div id="header">
     <h1>Online Model Release</h1>
-    <div class="small-text"><p>This is a Model Release, not a 2257 form. For a 2257 form check <a href="https://sophieladder.com/files/2257form/">here</a></p></div>
-    <p>1. Fill out fields below <br>2. Click "Generate Form" <br>3. Read contract <br>4.Fill out Agreement Acceptance fields <br>5. Download ("save as PDF") </p>
+    <div class="small-text">
+      <p>This is a Model Release, not a 2257 form. For a 2257 form check <a href="https://sophieladder.com/tools/2257form/">here</a></p>
+      <p>Find print versions <a href="https://sophieladder.com/files/">here</a></p>
+    </div>
+    <label class="Fswitch"><input type="checkbox" id="FAQsee" onclick="FAQ();"><span class="">
+      <div class="FAQ" onclick="FAQ()">FAQ & How To Use</div></span></label>
+    <span class="hide" id="FAQblock">
+      <h3>How To Use</h3>
+      <p>1. Fill out fields below <br>2. Click "Generate Form" <br>3. Read contract <br>4. Sign and Date <br>5. Attach IDs<br>6. Download</p>
+      <br>
+      <h4>Can I use this release for ___ ?</h4>
+      <p>Yes. This release is free to use for any adult content creation; independent, studio, trade, paid, whatever. <br>
+        <span class="small-text">You cannot use this release to make something completely SFW because it says you acknowledge you're appearing in adult media.</span>
+      </p>
+      <h4>Can I get a print version?</h4>
+      <p>Find print versions <a href="https://sophieladder.com/files/">here</a>.<br>Feel free to modify as well if you have any clauses you would like to insert.</p>
 
+      <h3>Troubleshooting</h3>
+
+      <h4>The document won't generate</h4>
+      <p>Most common reason is having a required field blank. If that doesn't work refresh the page and try again.</p>
+
+      <h4>The PDF won't generate</h4>
+      <p>Make sure that you have signed all fields and uploaded IDs for everyone. <br>Use JPG, PNG, or BMP for the ID images. HEIC, WEBP, and otheras are not accepted.</p>
+
+      <h4>The PDF file is huge!</h4>
+      <p>Downsize your ID images! The form puts your ID images into the reulting PDF without compressing them.</p>
+    </span>
+  </div>
+    <div id="main">
+
+    
     <form class="modelcounter">
       <input type="radio" id="2count" name="modelcount" value="2Model" checked onclick="twomod();">
       <label for="2count">2 Models</label>
@@ -24,27 +53,37 @@
       <label for="4count">4 Models</label>
     </form>
     <br>
-    <input type="radio" id="form_share" name="formtype" value="shared" checked>
-    <label for="form_share">Shared Content</label>
-    <input type="radio" id="form_exclude" name="formtype" value="exclusive">
-    <label for="form_share">Exclusive Content</label>
-    <br><br>
+    
+    <label class="container">Shared Content
+      <input type="radio" id="form_share" name="formtype" value="shared" checked>
+      <span class="checkmark"></span>
+    </label>
+    
+    <label class="container" >Exclusive Content
+      <input type="radio" id="form_exclude" name="formtype" value="exclusive">
+      <span class="checkmark"></span>
+    </label>
+    <br>
+    <h3>Models</h3>
     <input type="text" class="wide" id="model1name" name="Model 1 Name" placeholder="MODEL 1 FULL LEGAL NAME"><br>
-    <input type="text" class="wide" id="model1addy" name="Model 1 Address" placeholder="MODEL 1 FULL ADDRESS"><br>
+    <input type="text" class="wide" id="model1addy" name="Model 1 Address" placeholder="MODEL 1 FULL ADDRESS"><br><br>
     <input type="text" class="wide" id="model2name" name="Model 2 Name" placeholder="MODEL 2 FULL LEGAL NAME"><br>
     <input type="text" class="wide" id="model2addy" name="Model 2 Address" placeholder="MODEL 2 FULL ADDRESS"><br>
     <span id="model3">
-      <input type="text" class="wide" id="model3name" name="Model 3 Name" placeholder="MODEL 3 FULL LEGAL NAME"><br>
+      <br><input type="text" class="wide" id="model3name" name="Model 3 Name" placeholder="MODEL 3 FULL LEGAL NAME"><br>
       <input type="text" class="wide" id="model3addy" name="Model 3 Address" placeholder="MODEL 3 FULL ADDRESS"><br>
     </span>
     <span id="model4">
-      <input type="text" class="wide" id="model4name" name="Model 4 Name" placeholder="MODEL 4 FULL LEGAL NAME"><br>
+      <br><input type="text" class="wide" id="model4name" name="Model 4 Name" placeholder="MODEL 4 FULL LEGAL NAME"><br>
       <input type="text" class="wide" id="model4addy" name="Model 4 Address" placeholder="MODEL 4 FULL ADDRESS"><br>
     </span>
 
     <br>
-    <input type="text" class="wide" id="content" placeholder="NAME/DESCRIBE VIDEO AND/ OR PICTURES"><br>
-    film date <input type="date" id="date" ><br>
+    <h3>Shoot ID</h3>
+    <input type="text" class="wide" id="content" placeholder="NAME/DESCRIBE VIDEO AND/ OR PICTURES"><br><br>
+    <h4>Shoot Date</h4>
+    <input type="date" id="date" >
+    <h4>& Location</h4>
     <input type="text" id="locality" placeholder="LOCALITY"><br><br>
     <h4>Optional Fields:</h4>
 
@@ -52,38 +91,69 @@
     Witness <label class="switch"><input type="checkbox" id="witcheck" onclick="wit();"><span class="slider"></span></label><br>
     <input type="text" id="witness" class="wide" placeholder="Witness Name">
     <br>
-    Sale Restrictions
+    <h3>Sale Restrictions</h3>
+    
     <label class="switch"><input type="checkbox" id="salecheck" onclick="strict();"><span class="slider"></span></label>
     &nbsp; <div class="tooltip">?<span class="tooltiptext">As a default this document gives both parties free reign to do whatever they'd like with their content. Click here to enable restrictions like setting a minimum sale price, maximum amount that can be uploaded to tube sites, and more</span></div>
     <br>
 
     <div id="restrictions">
-      <p>
-        Minimum sale price: $<input type="text" class="small" id="minvalue" value="0"> USD (enter 0 for no min)</span><br>
-        <input type="radio" value="val1" name="group1" checked>Always <input type="radio" value="val2" name="group1">
-         For the first <input type="text" class="medium" id="selltime" placeholder="two weeks / 3 months / etc" value=""> after release
-        <br><br>
-        Maximum Length To Be Uploaded To Free-To-View Services: <br><input type="text" class="small" id="mintime" value="999">minutes <span class="small-text">(enter 0 to disallow, or 999 to allow unlimited uploading)</span> <br>
+      <h4>Minimum Sale Price</h4>
+      <label class="switch"><input type="checkbox" id="MSP" onclick="msp();"><span class="slider"></span></label><br>
+      <span id="minprice">
+        Minimum sale price: $<input type="text" class="small" id="minvalue" value="0"> USD <br><span class="small-text">(enter 0 for no min)</span><br>
+        <label class="container">
+          <input type="radio" value="val1" name="group1" checked>Always 
+          <span class="checkmark"></span>
+        </label>
+        <label class="container">
+          <input type="radio" value="val2" name="group1">For the first
+          <span class="checkmark"></span>
+        </label>
+        <input type="text" class="medium" id="selltime" placeholder="two weeks / 3 months / etc" value=""> after release
+      </span><br>
+
+      <h4>Limit Free-To-View Length</h4>
+      <label class="switch"><input type="checkbox" id="FTV" onclick="ftv();"><span class="slider"></span></label><br>
+      <span id="freelength">
+        <input type="text" class="small" id="mintime" value="999">minutes <span class="small-text">(enter 0 to disallow)</span> <br>
         Allow full upload of the video after <input type="text" class="small" id="freedelay" value="12"> months?<input type="checkbox" id="delay" name="delay"><span class="small-text">check for yes</span>
-        <br><br>
-        Allow the other party to sell this in a bundle? <select name="" id="bundle"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select><br><br>
-        Allow the other party to give this away as a reward? <select name="" id="giveaway"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select><br><br>
-        Allow the other party to upload this to paid subscription services run by the party?<select name="" id="premium"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select>
+      </span><br>
+
+      <h4>Member & Fan Sites</h4>
+      <p>Allow the other party to upload this to paid subscription services run by the party?<select name="" id="premium"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select>
         <div class="small-text">Member websites, OnlyFans, Fansly, JFF, etc</div>
-        <br>
-        Allow the other party to license the content to 3rd party streaming and Video-On-Demand  services?<select name="" id="VOD"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select><br><br>
+      </p><br>
+
+      <h4>VOD & 3rd Party Streamers</h4>
+      <p>
+        Allow the other party to license the content to 3rd party streaming and Video-On-Demand services under an account associated with them?<select name="" id="VOD"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select>
         <div class="small-text">Xvideos Red, Faphouse, Adult Empire, HotMovies, etc</div>
-        <br>
-        Set release date?
+        <div class="small-text">For content where you get paid after people watch based on views.</div>
+      </p>
+      <br>
+
+      <h4>Sub-Licensing, Selling Rights</h4>
+      <p>
+        Allow the other party to license the video or sell non-exclusive rights to a video to a 3rd party for an up-front fee?<select name="" id="SUB"><option value="DO">DO</option><option value="SHARE">SPLIT</option><option selected value="DO NOT">DO NOT</option></select>
+        <div class="small-text">This is distinct from other 3rd party streams as you are granting them the re-sell rights for an up-front fee.</div>
+        <div class="small-text">Choose between DO NOT allow, DO allow, or allowed if you SPLIT the income.</div>
+      </p><br>
+
+      <h4>Misc</h4>
+      <p>
+        Allow the other party to sell this in a bundle? <select name="" id="bundle"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select><br>
+        Allow the other party to give this away as a reward? <select name="" id="giveaway"><option selected value="">DO</option><option value=" DO NOT">DO NOT</option></select>
+      </p><br>
+      <h4>Release Date</h4>
+      <p>Set release date?
         <label class="switch"><input type="checkbox" id="timecheck" onclick="time();"><span class="slider"></span></label>&nbsp;<span id="timetext">No</span>
         <span id="releasetime"><br>Not Before: <input type="date" class="medium" value="" id="releasedate"></span>
-        <br>
-      </p>
-    </div>
+      </p><br><br>
+    </div><br>
     <p>      <button onclick="generateForm()" class="wide">Generate Form</button>  </p>
-  </div>
-  <br>
-  <div id="bg">
+</div>
+<div id="bg">
     <p style="text-align:center;">
     <span id="intro"></span>
     <br>
@@ -120,8 +190,9 @@
           <br> <span style="margin-left: 30px;">6.3 I hereby <span id="fill_bundle"></span>  grant <span class="name"></span> permission to sell the Content with other pieces of intellectual property owned by that party as a single unit for a reduced group price (a “Bundle”).</span>
           <br> <span style="margin-left: 30px;">6.4 I hereby <span id="fill_giveaway"></span>  grant <span class="name"></span> permission to give away the Content as a part of contests, promotions, rewards, or other services.</span>
           <br> <span style="margin-left: 30px;">6.5 I hereby <span id="fill_premium"></span> grant <span class="name"></span> permission to upload the Content to paid subscription services run by <span class="name"></span> (eg. Member website, OnlyFans, Fansly, etc)</span>
-          <br> <span style="margin-left: 30px;">6.6 I hereby <span id="fill_VOD"></span> grant <span class="name"></span> permission to license the Content to 3rd party Video-On-Demand and paid subscription streaming services. (eg. Xvideos Red, Faphouse, Adult Empire, HotMovies, etc)</span>
-          <br> <span style="margin-left: 30px;">6.7 <span class="name"></span> <span id="timeclause"></span> </span>
+          <br> <span style="margin-left: 30px;">6.6 I hereby <span id="fill_VOD"></span> grant <span class="name"></span> permission to license the Content to 3rd party Video-On-Demand and paid subscription streaming services that pay out on regular intervals based on views. (eg. Xvideos Red, Faphouse, Adult Empire, HotMovies, etc)</span>
+          <br> <span style="margin-left: 30px;">6.7 <span class="name"></span> <span id="resell"></span> </span>
+          <br> <span style="margin-left: 30px;">6.8 <span class="name"></span> <span id="timeclause"></span> </span>
         </li>
         <li>I hereby agree to not disclose the other party's legal name or address (hereinafter referred to as "Confidential Information"), except as required by the Platform to sell the Content, or as required by the law, and shall refrain from disclosing such Confidential Information to any third party without prior, written approval from the other party, and shall protect such Confidential Information from inadvertent disclosure to a third party using the same care and diligence that I use to protect my own confidential information, but in no case less than reasonable care. I shall ensure that each of my employees, officers, directors, or agents who has access to Confidential Information disclosed under this Agreement is informed of its confidential nature and is required to abide by the terms of this Agreement. I shall promptly notify the affected party of any disclosure of such Confidential Information in violation of this Agreement or of any subpoena or other legal process requiring production or disclosure of said Confidential Information;</li>
         <li>I hereby understand and agree that the Content may be searchable by others through the Platform itself and through others partnered or networked entities of the Platform or <span class="name"></span> . Furthermore, I understand and agree that the Content may be searchable by publicly available search engines, and it is my sole responsibility should I wish not to appear, be found, or be removed of such search engines; </li>
@@ -134,10 +205,9 @@
         <li>This Agreement shall be governed by and construed in accordance with the laws of <span id="fill_locality"></span>. The parties irrevocably agree that the courts of <span id="fill_locality2"></span> shall have exclusive jurisdiction to settle any dispute or claim that arises out of or in connection with this Agreement or its subject matter or formation (including non-contractual disputes or claims). </li>
       </ol>
     </div>
-    <br>
-    <div class="center" id="">
+    <div id="signatures">
       <h2>Agreement Acceptance</h2>
-      <span>I have read and accepted the Agreement on this day, <input type="date" id="sigdate" class="date"></span>
+      <span>I have read and accepted the Agreement on this day, <input type="date" id="sigdate" class="date"></span><br>
       <br>
       MODEL 1 SIGNATURE
       <div class="wrapper">
@@ -171,8 +241,11 @@
         <button id="clear5">Clear</button> <br>
       </div>
 
-      <br><span style="font-size:14px">Upload pictures of both model's photo ID. note, this should be in landscape format as portrait photos will <be></be> distorted</span>
-      <br><br>Model 1 ID
+      <p>Upload pictures of all models' primary photo ID. <br></p>
+      <p class="small-text">
+        Upload in landscape format as portrait photos will be distorted. <br>Large file size? Compress / downside images before upload.
+      </p>
+      <br>Model 1 ID
       <input type='file' accept='image/*' onchange='openFile(event)'><br>
       <img id='output1'>
       <br>Model 2 ID
@@ -190,18 +263,17 @@
         <br>
       </span>
       <br>
-      <button id ="publish" onclick="printtopdf()" class="wide">Save as pdf</button>
+      <button id ="publish" onclick="printtopdf()" class="wide">Download / Save as pdf</button>
       <br>
-      <span style="font-size:12px">This will NOT work if you have not upladed ID images</span>
+      <span style="font-size:14px">This will NOT work if you have not upladed ID images</span><br><br>
     </div>
+</div>
+
     <div class="footer">
-      <p>Privacy / About:
-      <br>
-      No information entered here is sent over the web in any way. Make sure that you have
-      <br>downloaded your PDF to a safe place as once you exit this form it'll be gone forever.
-      </p>
+      <h4>Donations to keep this free can be sent to $sophieladder on <a href="https://cash.app/$SophieLadder"> cashapp</a></h4><br>
+      <h4>Privacy / About:</h4>
+      <p>No information entered here is sent over the web, it is all processed locally on your device. <br>  Make sure that you have downloaded your PDF to a safe place as once you exit this form it'll be gone forever. </p><br>
       <p>Fork this on <a href="https://github.com/sophieladder/ModelReleasePDF">github</a></p>
-      <p>Donations to keep this free can be sent to $sophieladder on cashapp</p>
     </div>
   </body>
 <script src="script.js"></script>

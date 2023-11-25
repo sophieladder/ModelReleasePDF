@@ -1,5 +1,21 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+body {
+  max-width: 1200px;
+  background-color: #636;
+}
+hr {
+  height: 20px;
+  border: none;
+}
 input {
   color:purple;
+  border: 2px solid #dbd;
+  border-radius: 5px;
 }
 input:hover {
   color:purple;
@@ -20,15 +36,14 @@ li {
 .small {
   width: 50px;
 }
-.medium {
-  width: 200px;
-}
 .med {
   font-size: 1.2em;
   width: 250px;
 }
 .date {
   font-size: 2em;
+  display: block;
+  margin: 20px auto;
 }
 #date {
   font-size: 1.5em;
@@ -59,6 +74,13 @@ li {
 #idbutton {
   padding: 20px;
 }
+#bday {
+  margin-bottom: 20px;
+}
+.enter {
+  display: block;
+  margin-top: 10px;
+}
 
 .grid-container {
   display: grid;
@@ -70,7 +92,6 @@ li {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
-  text-align: center;
 }
 
 .wrapper {
@@ -93,26 +114,33 @@ li {
   background-color: white;
   border: solid 1px;
 }
-#header {
-  text-align: center;
+#main, #header {
   font-size: 1.3em;
   max-width: 1000px;
   max-width: 100%;
   background-color: #efeaf2;
-  padding:15px 0;
-}
-#header > p, h1, h2, h3, h4{
-  max-width: 900px;
-  margin: auto;
+  padding:15px;
+  border-radius: 25px 0;
 }
 h1 {
   font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+h1, h2, h3 {
+  padding: 20px 0 10px;
+  max-width: 900px;
+}
+h4 {
+  padding: 0 0 10px;
+  max-width: 900px;
 }
 p {
-  margin: 0 auto;
+  max-width: 900px;
+  padding: 0 0 20px 0;
 }
 .center {
-  text-align: center;
   font-size: 1.3em;
   max-width: 1000px;
   max-width: 100%;
@@ -135,12 +163,20 @@ p {
 #sigdate {
   font-size: 1.5em;
 }
+#publish {
+  display: block;
+  padding: 20px 0;
+  font-weight: 900;
+}
 .footer {
+  background-color: #e9edf1;
+  border: 2px solid purple;
+  border-radius: 20px;
   max-width: 100%;
-  max-width: 900px;
-  text-align: center;
+  max-width: 1000px;
   margin: 0 auto;
   padding-top: 25px;
+  margin-top: 25px;
 }
 .tooltip {
   position: relative;
@@ -153,7 +189,6 @@ p {
   width: 600px;
   background-color: darkgrey;
   color: #fff;
-  text-align: center;
   border-radius: 6px;
   padding: 5px 0;
 
@@ -168,6 +203,7 @@ p {
 }
 #sig {
   padding: 25px 0;
+  border-radius: 25px 0;
 }
 #witness {
   display: none;
@@ -216,6 +252,13 @@ p {
   font-style: italic;
   font-size: 16px;
 }
+.small-text {
+  font-size: 0.85em;
+  font-style: italic;
+}
+.small-text p {
+  padding: 0;
+}
 input:checked + .slider {
   background-color: purple;
 }
@@ -227,4 +270,14 @@ input:checked + .slider:before {
   -webkit-transform: translateX(20px);
   -ms-transform: translateX(20px);
   transform: translateX(20px);
+}
+#clear {
+  font-style: italic;
+  font-size: 0.8em;
+  padding: 2px 15px;
+  margin: 0 0 20px;
+  font-variant: small-caps;
+}
+#idu {
+  font-size: 1em;
 }

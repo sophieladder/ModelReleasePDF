@@ -12,11 +12,11 @@ var formtype = "shared"; //by default the form is shared
 //change the form to exclusive content and back to shared
 document.getElementById('form_share').addEventListener('click', function () {
 formtype = "shared";
-document.getElementById("model1name").value = "MODEL 1 FULL LEGAL NAME";
+document.getElementById("model1name").placeholder = "MODEL 1 FULL LEGAL NAME";
 });
 document.getElementById('form_exclude').addEventListener('click', function () {
 formtype = "exclude";
-document.getElementById("model1name").value = "MODEL 1 (OWNER) FULL LEGAL NAME";
+document.getElementById("model1name").placeholder = "MODEL 1 (OWNER) FULL LEGAL NAME";
 });
 
 // show and hide the witness signature field
@@ -242,7 +242,8 @@ function generateForm() {
     document.getElementById("slength").innerHTML = `for the first ${document.getElementById("selltime").value} after release`;
 
     // changes the wording of the sale restrictions based on imput
-    if (document.getElementById("mintime").value == 999){
+        // FREE TO VIEW LIMITS
+    if (!document.getElementById("FTV").checked){
       if (formtype == "shared"){
         document.getElementById("minclause").innerHTML = "6.2 Both PARTIES shall be allowed to upload the Content, in whole or in part, to free-to-view services";
       }
@@ -277,6 +278,7 @@ function generateForm() {
     document.getElementById("fill_premium").innerHTML = document.getElementById("premium").value;
     document.getElementById("fill_VOD").innerHTML = document.getElementById("VOD").value;
   }
+
   if (document.getElementById("timecheck").checked){
     var retime = document.getElementById('releasedate').value;
     document.getElementById("timeclause").innerHTML = ` shall not release the Content before ${retime}.`;
@@ -284,6 +286,17 @@ function generateForm() {
   else {
     document.getElementById("timeclause").innerHTML = " may publish the Content at any date of their choosing.";
   }
+
+  if (document.getElementById("SUB").value == "SHARE"){
+    document.getElementById("resell").innerHTML = `may license / sell the re-sale rights for the content to a 3rd party for a standard or negotiated up-front fee if it is then split evenly among all co-performers.`;
+  }
+  if (document.getElementById("SUB").value == "DO NOT"){
+    document.getElementById("resell").innerHTML = `may not license / sell the re-sale rights for the content to a 3rd party for an initial fee.`;
+  }
+  if (document.getElementById("SUB").value == "DO"){
+    document.getElementById("resell").innerHTML = `may license / sell the re-sale rights for the content to a 3rd party for a standard or negotiated fee which is solely theirs.`;
+  }
+  
 }
 
 // show or hide the selling restrictions at the top of the page
@@ -305,4 +318,35 @@ function time() {
     document.getElementById('releasetime').style.display = "none";    
     document.getElementById('timetext').innerHTML = "No";
   }
+}
+
+// show or hide the top-page FAQ
+function FAQ() {
+  if (document.getElementById('FAQsee').checked){
+    document.getElementById('FAQblock').style.display = "block";
+  }
+  else {
+    document.getElementById('FAQblock').style.display = "none";
+  }
+
+}
+// show or hide the MSP
+function msp() {
+  if (document.getElementById('MSP').checked){
+    document.getElementById('minprice').style.display = "block";
+  }
+  else {
+    document.getElementById('minprice').style.display = "none";
+  }
+
+}
+// show or hide the FTV
+function ftv() {
+  if (document.getElementById('FTV').checked){
+    document.getElementById('freelength').style.display = "block";
+  }
+  else {
+    document.getElementById('freelength').style.display = "none";
+  }
+
 }

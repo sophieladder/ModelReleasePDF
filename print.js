@@ -119,7 +119,7 @@ var name ="";     // whether the content is shared or exclusive
   if (document.getElementById("mintime").value == 0){
     doc.text(xmargin+10, yline,`6.2 The ${name} agree(s) to not upload any of the Content to free-to-view services`);
   }
-  else if (document.getElementById("mintime").value == 999){
+  else if (!document.getElementById("FTV").checked){
     doc.text(xmargin+10, yline,`6.2 The ${name} SHALL be allowed to upload the Content, in whole or in part, to free-to-view services`);
   }
   else {
@@ -141,11 +141,23 @@ var name ="";     // whether the content is shared or exclusive
   doc.text(xmargin+10, yline, `6.6 I hereby${document.getElementById("premium").value} grant the ${name} permission to upload and/or license the Content to 3rd party paid subscription \n\tand VOD (Video-On-Demand) services. (eg. Xvideos Red, Faphouse, Adult Empire, HotMovies)`);
   yline+=8;
 
+  if (document.getElementById("SUB").value == "SHARE"){
+    doc.text(xmargin+10, yline, `6.7 The ${name} may license / sell the re-sale rights for the content to a 3rd party for a standard or \n\tnegotiated up-front fee if it is then split evenly among all co-performers.`);
+  }
+  if (document.getElementById("SUB").value == "DO NOT"){
+    doc.text(xmargin+10, yline, `6.7 The ${name} may not license / sell the re-sale rights for the content to a 3rd party for a standard or \n\tnegotiated up-front fee .`);
+  }
+  if (document.getElementById("SUB").value == "DO"){
+    doc.text(xmargin+10, yline, `6.7 The ${name} may license / sell the re-sale rights for the content to a 3rd party for a standard \n\tor negotiated fee which is solely theirs.`);
+  }
+
+
+  yline+=8;
   if (document.getElementById('timecheck').checked){
-    doc.text(xmargin+10, yline, `6.7 The ${name} shall not release the content before ${document.getElementById('releasedate').value}`);
+    doc.text(xmargin+10, yline, `6.8 The ${name} shall not release the content before ${document.getElementById('releasedate').value}`);
   }
   else {
-    doc.text(xmargin+10, yline, `6.7 The ${name} may publish the content at the date of their choosing.`);
+    doc.text(xmargin+10, yline, `6.8 The ${name} may publish the content at the date of their choosing.`);
   }
  
   yline+=10;

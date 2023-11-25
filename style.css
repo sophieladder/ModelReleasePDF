@@ -1,11 +1,29 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #636;
+}
 input {
   color:purple;
+  border: 2px solid #dbd;
+}
+input[class=wide]{
+  border-radius: 10px;
 }
 input:hover {
   color:purple;
 }
 input:focus {
   color:RebeccaPurple;
+}
+input[type=file]{
+  padding: 10px;
+}
+select {
+  font-size: 1em;
+  border-radius: 5px;
 }
 li {
   padding: 10px 0;
@@ -21,7 +39,7 @@ li {
   width: 200px;
 }
 .date {
-  font-size: 1.5em;
+  font-size: 1em;
 }
 #date {
   font-size: 1.5em;
@@ -29,7 +47,6 @@ li {
 #locality{
   width: 250px;
   font-size: 1em;
-  margin-top: 10px;
 }
 .grid-container {
   display: grid;
@@ -41,7 +58,6 @@ li {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
-  text-align: center;
 }
 
 .wrapper {
@@ -64,38 +80,49 @@ li {
   background-color: white;
   border: solid 1px;
 }
-#header {
-  text-align: center;
+#header, #main, #signatures  {
   font-size: 1.3em;
-  max-width: 1000px;
-  max-width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 20px;
   background-color: #efeaf2;
   padding:15px 0;
+  border-radius: 25px 0;
+  text-align: center;
 }
 h1 {
+  font-family: Arial;
   font-size: 50px;
+  font-weight: 900;
+  padding-bottom: 10px;
+  letter-spacing: -2px;
 }
-.center {
-  text-align: center;
-  font-size: 1.3em;
-  max-width: 1000px;
-  max-width: 100%;
-  background-color: #efeaf2;
+h2 {
+  padding: 20px 0;
+}
+h3 {
+  padding-top: 20px;
+}
+h4 {
+  padding-top: 15px;
 }
 .small-text {
-  font-size: 0.75em;
+  font-size: 0.85em;
   font-style: italic;
-  margin-top: -1em;
 }
 #bg {
   background-color: #e9edf1;
   display: none;
+  border-radius: 25px 0;
+  max-width: 900px;
+  padding: 20px;
+  margin: 40px auto;
 }
 #acceptance {
   display: none;
 }
 #restrictions {
   display: none;
+  margin-top: 25px;
 }
 #releasetime {
   display: none;
@@ -107,8 +134,13 @@ h1 {
 .footer {
   max-width: 100%;
   max-width: 900px;
-  text-align: center;
-  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  margin: 20px auto;
+  color: #fff;
+}
+.footer a {
+  color: #fff;
 }
 .tooltip {
   position: relative;
@@ -121,7 +153,6 @@ h1 {
   width: 600px;
   background-color: darkgrey;
   color: #fff;
-  text-align: center;
   border-radius: 6px;
   padding: 5px 0;
 
@@ -137,20 +168,24 @@ h1 {
 #witness, #third_sig,#fourth_sig, #witness_sig, #model3, #model4, #threeup, #fourup, #thirdtext, #fourthtext {
   display: none;
 }
+
+.Fswitch input{
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 /* the select witness switch*/
 .switch {
   position: relative;
   display: inline-block;
-  width: 40px;
-  height: 20px;
+  width: 64px;
+  height: 32px;
 }
-
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 .slider {
   position: absolute;
   cursor: pointer;
@@ -159,20 +194,21 @@ h1 {
   right: 0;
   bottom: 0;
   background-color: #ccc;
+  border-radius: 5px;
   -webkit-transition: .4s;
   transition: .4s;
 }
-
 .slider:before {
   position: absolute;
   content: "";
-  height: 16px;
-  width: 16px;
+  height: 28px;
+  width: 28px;
   left: 2px;
   bottom: 2px;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 5px;
 }
 
 input:checked + .slider {
@@ -183,22 +219,114 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(20px);
-  -ms-transform: translateX(20px);
-  transform: translateX(20px);
+  -webkit-transform: translateX(32px);
+  -ms-transform: translateX(32px);
+  transform: translateX(32px);
 }
-
+.modelcounter {
+  padding-top: 20px;
+}
 .modelcounter input[type="radio"] {
   display: none;
 }
 .modelcounter label {
  display: inline-block;
- background-color: #ddd;
- padding: 4px 11px;
+ background-color: #dbd;
+ border-radius: 10px;
+ border: 3px solid white;
+ padding: 8px 16px;
  font-family: Arial;
- font-size: 16px;
+ font-size: 18px;
  cursor: pointer;
 }
 .modelcounter input[type="radio"]:checked+label {
-  background-color: #bbb;
+  background-color: #939;
+  font-weight: bold;
+  color: #fff;
+}
+.spaceafter {
+  margin-bottom: 10px;
+}
+#FAQblock {
+  display: none;
+  background-color: #dbd;
+  padding: 20px;
+}
+#FAQsee {
+  position: relative;
+  top: 25px;
+}
+.FAQ {
+  background-color: #636;
+  color: #fff;
+  width: 500px;
+  border-radius: 10px;
+  padding: 5px;
+  margin: auto;
+}
+/* The container */
+.container {
+  display: inline-block;
+  position: relative;
+  padding: 0 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 32px;
+  width: 32px;
+  background-color: #dbd;
+  border-radius: 30%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked */
+.container input:checked ~ .checkmark {
+  background-color: #939;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 8px;
+	left: 8px;
+	width: 16px;
+	height: 16px;
+	border-radius: 30%;
+	background: white;
+}
+#minprice, #freelength {
+  display: none;
+  font-size: 26px;
+}
+#restrictions input {
+  font-size: 26px;
 }
