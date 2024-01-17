@@ -1,5 +1,5 @@
 function printtopdf() {
-  if (signaturePad1.isEmpty() ||signaturePad2.isEmpty() || document.getElementById("model1name").value == "" || document.getElementById("model2name").value == "" || document.getElementById("model1addy").value == "" || document.getElementById("model2addy").value == "" || document.getElementById("content").value == "" || document.getElementById("locality").value == "") {
+  if (signaturePad1.isEmpty() ||signaturePad2.isEmpty() || document.getElementById("model1name").value == "" || document.getElementById("model2name").value == "" || document.getElementById("model1addy").value == "" || document.getElementById("model2addy").value == "" || document.getElementById("content").value == "" || document.getElementById("locality").value == "" || document.getElementById("sigdate").value == "") {
     // checks all the fields, if one is empty or at its default value returns an error message instead of creating the PDF
     return alert("Information or signature missing, please review the document then try again.");
   }
